@@ -333,7 +333,7 @@ In this setting **4 individual builds** are triggered in a build group
 Secure environment variables
 .............................
 
-Shippable allows you to encrypt the environment variable definitions and keep your configurations private using **secure** tag. Go to the org dashboard  or individual dasboard page from where you have enabled your project and click on **ENCRYPT ENV VARIABLE** button on the top right corner of the page. Enter the env variable and its value in the text box as shown below. 
+Shippable allows you to encrypt the environment variable definitions and keep your configurations private using **secure** tag. Go to the org dashboard  or individual dashboard page from where you have enabled your project and click on **ENCRYPT ENV VARIABLE** button on the top right corner of the page. Enter the env variable and its value in the text box as shown below. 
 
 .. code-block:: python
 
@@ -763,7 +763,7 @@ Examples for other languages can be found in our :ref:`Code Samples <samplesref>
 
 **Notifications**
 -----------------
-Shippable primarily supports email notifications and these can can be configured through the yml. To send Slack notifications, please check out our `blog post <http://blog.shippable.com/devops-chat-a-simple-way-to-use-slack-notifications-with-shippable>`_.  To send HipChat notifications, check out our `sample project for hipchat notifications <https://github.com/shippableSamples/sample-hipchat-notifications>`_.
+Shippable primarily supports email and irc notifications and these can can be configured through the yml. To send Slack notifications, please check out our `blog post <http://blog.shippable.com/devops-chat-a-simple-way-to-use-slack-notifications-with-shippable>`_.  To send HipChat notifications, check out our `sample project for hipchat notifications <https://github.com/shippableSamples/sample-hipchat-notifications>`_.
 
 By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
 
@@ -805,6 +805,52 @@ If you do not want to get notified for any reason, you can configure email notif
      email: false
 
 
+IRC notification
+..................
+
+You can also configure yml file to send build notifications to your IRC channels. 
+
+- To specify single channel
+
+.. code-block:: bash
+
+   notifications:
+      irc:  "chat.freenode.net#channel1"
+
+- You can also specify multiple server channels in yml file. The following formats are supported: 
+
+.. code-block:: bash
+
+   notifications:
+     irc: 
+       - "chat.freenode.net#channel1"
+       - "chat.freenode.net#channel2"
+       - "server1#channel3"
+
+
+  
+.. code-block:: bash
+
+  notifications:
+    irc:
+     channels: 
+       - "chat.freenode.net#channel1"
+       - "chat.freenode.net#channel2"
+       - "server1#channel3"
+
+- By default, We will always send build notifications to the mentioned channels in yml. **on_success** and **on_failure**  are not yet configurable. 
+
+- IRC notifications are turned off by default for pull request builds. However, you can change the default settings by adding **pull_requests: true** tag in your yml as shown below.
+
+.. code-block:: bash
+
+  notifications:
+    irc:
+     pull_requests: true
+     channels:
+       - "chat.freenode.net#channel1"
+ 
+
 ----------
 
 **Pull Request**
@@ -819,7 +865,7 @@ To rerun a pull request build, go to your project's page -> Pull Request tab and
 **Permissions**
 ------------------
 
-We will automatically add your collaborators when you login to shippable and it will be updated in the user-interface. Go to the project's page and click on the **Permissions** button on the right side of the page to view your collaborators. 
+We will automatically add your collaborators when you login to shippable and it will be updated in the user-interface. 
 
 
 There are two types of roles that users can have -
