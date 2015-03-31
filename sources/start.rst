@@ -11,48 +11,48 @@ Getting Started
 **Step 1** : Sign Up
 --------------------
 
-To sign up with Shippable, you should have either a Github or Bitbucket account. Go to `Shippable.com <https://www.shippable.com>`_  and click on the 'Login' button on the top menu which will give you an option to sign in with either Github or Bitbucket credentials.
+Using Shippable requires a Github or Bitbucket account. To create a Shippable account with either of these credentials, visit `Shippable.com <https://www.shippable.com>`_ click login, and choose if you'd like to use your Github or Bitbucket credentials.
+If you have Github and Bitbucket accounts you'd like to integrate with shippable, come back and repeat the the process with your other account.
 
-Click on the Login button and choose the service provider that you would like to log in with. After entering credentials, it will take you to the standard app authorization page and prompt you to give access to Shippable.      
+If you signup with both Github and Bitbucket, you will have a seperate Shippable account for each.
+
+After entering your credentials, you will be prompted to give Shippable access to your repos.
 
 .. note::
-    We realize that most people do not want to give write access to their repo. However, we need write permissions to add deploy keys to your repos so that webhooks work. We do not touch anything else in the repo.
 
-After authorization, you will be authenticated by the service provider and redirected back to Shippable. You are now ready to set up CI! 
+    We realize that most people do not want to give write access to their repo. However, we need write permissions to add deploy keys to your repos for our webhooks to work. We do not touch anything else in the repo.
 
-Shippable allows you to connect both GitHub and Bitbucket service providers. To link both accounts, go to the dashboard page and click on the Bitbucket or GitHub icon on the top right that you would like to connect.
+After authorization, you will be authenticated by the service provider and redirected back to Shippable. You are now ready to create builds on Shippable!
+
 
 -------
 
 **Step 2** : Enable CI for repos
 ---------------------------------------
 
-Follow the steps below to enable a project:
-
-
-1. Select your source code hosted account from the right side of dashboard page and it will redirect you to the respective account's dashboard page. 
-
-2. Click on the **Repos** button and choose the project that you would like to build and then click on the **Enable** button.
+After logging in, you will see a sidebar to the right called Repositories. Find or search for your product in the list, and click the enable button.
+Now, whenever you push a commit to your github repo, our webhooks will create a build for that project. You can additionally manually trigger builds
+for the enabled project, by visiting it from the enabled projects list.
 
 -------
 
 **Step 3** : Create YML file
 ----------------------------
 
-Our CI environment needs a little information about your project to run the right build steps. We look for a file called ``shippable.yml`` in the root folder of your repo for this info. 
+In order for Shippable to know how to create a build for your project, your must include in it a ``shippable.yml`` file. This file must be located in the root directory of your repo.
 
 .. note::
+
   This example is for a node.js project. For other languages, refer to our :ref:`language guides <langrefs>`. 
 
   **If you use TravisCI, we support** ``.travis.yml`` **natively, so that you can test your repos in parallel with Shippable and compare the speed and rich visualizations.**
 
-* Tell us what build image to use. This is an optional setting and if omitted, ``shippable/minv2`` is used as a default (syntax is ``<docker_hub_username>/<image_name>``).
+* First, you can specify what docker image to use. This is an optional setting and if omitted, ``shippable/minv2`` will be used (syntax is ``<docker_hub_username>/<image_name>``).
     .. code-block:: python
         
         # build image from Docker Hub (see https://registry.hub.docker.com/repos/shippableimages/)
         build_image: shippableimages/ubuntu1404_nodejs
-
-* Set the appropriate language and the version number. You can test against multiple versions for a single push by adding more entries. We support all versions of Node.js as it is auto installed during your first run.
+* Next, specify the programming language of the project, and the versions of the language you'd like to create builds with. You can test against multiple versions with a single push by adding more in the versions section. 
     .. code-block:: python
         
         # language setting
@@ -61,18 +61,17 @@ Our CI environment needs a little information about your project to run the righ
         # version numbers, testing against two versions of node
         node_js:
           - 0.10.25
-
-- ``before_install`` tag can be used to install any additional libraries if needed. We use ``npm`` to run all dependencies in ``package.json``
+* The ``before_install`` tag can be used to install any additional needed dependencies. Here we invoke ``npm install`` to install our Node.js app's dependencies. Even if you don't specify anything here, your minion will attempt to install dependencies for your app in an idiomatic way for the language (such as invoking rake for ruby, or pip for python)
     .. code-block:: python
-        
+
         # npm install runs by default but shown here for illustrative purposes
         before_install: 
          - npm install docco
          - npm install coffee-script
 
-- ``script`` tag can be used to install any additional libraries if needed. We use ``npm`` to run all dependencies in ``package.json``
+* The ``script`` tag is where the magic happens. Here you will write the commands used to verify the integrity of your code. Again, if you list nothing here, your build minion will attempt to make a logical choice based on your specified language
     .. code-block:: python
-        
+
         # Running npm test to run your test cases
         script: 
          - npm test
@@ -81,10 +80,11 @@ Our CI environment needs a little information about your project to run the righ
 
 --------
 
-**Step 4** : Test Visualizations
---------------------------------
+**Step 4** : Setup Test Visualizations
+---------------------------------------
 
-To use Shippable's test visualization feature, your code coverage output needs to be in cobertura xml format and test results should be in junit format. More details can be found in our :ref:`Code Samples <samplesref>`. 
+To use Shippable's test visualization feature, your code coverage output needs to be in cobertura xml format, and test results should be in junit format. More details can be found in our :ref:`Code Samples <samplesref>`. 
+This is an optional feature.
 
 
 --------
@@ -92,15 +92,17 @@ To use Shippable's test visualization feature, your code coverage output needs t
 **Step 5** : Run the build
 ---------------------------
 
-Builds can be triggered through webhooks or manually through Shippable.com. 
+Builds can be triggered through webhooks or manually through shippable.com. 
 
 **Webhooks**
 
-Webhooks are user-defined HTTP callbacks. They are usually triggered by some event, such as pushing code to a repository or creating a pull request. Your builds will run automatically when webhooks are triggered. 
+Our webhooks are triggered when a commit is pushed to your repo, or if a pull request is created. Webhooks are are a code way to
+verify that commits to your project build in a clean environment, and not just on the comitter's machine.
+
 
 **Manual Builds** 
 
-After enabling the project, click on the **Build this project** button to manually run the build. Instantly,it will redirect you to the build's page and the console log from your build minion starts to stream to your browser through sockets. 
+After enabling the project, click on the **Build this project** button to manually run a build. Instantly,it will redirect you to the build's page and the console log from your build minion starts to stream to your browser through sockets. 
 
 
 --------
@@ -108,9 +110,7 @@ After enabling the project, click on the **Build this project** button to manual
 **Step 6** : Check output
 ------------------------- 
  
-In addition to running builds, Shippable also provides visualization of key information for every build. 
-
-The following information is available for every build -
+In addition to running builds, Shippable also provides useful visualizations for every build. 
 
 **Console Log** :
 Stdout of a build run is streamed to the browser in real-time using websockets. In addition, there are other important pieces of information like 
@@ -121,20 +121,13 @@ Stdout of a build run is streamed to the browser in real-time using websockets. 
 * committer info
 
 **Artifact archive** :
-Add **archive: true** tag to your shippable.yml file to enable the download artifacts option. Build artifacts are automatically archived for each run after the completion. Go to build's page and then click on the **Artifacts** button to download the artifacts as a .tar file. All files in ./shippable folder at the root of the project are automatically archived. Make sure you include the **archive: true** tag in your yml file to enable the download archive button.
+If enabled, build artifacts are automatically archived for each run upon completion. To download a tarball of your build's artifacts, go to the build's page and click on the **Artifacts** button. All files in the ./shippable folder at the root of the project are automatically archived. Make sure you include the **archive: true** tag in your yml file to enable the download archive button.
 
 **Test cases** :
-Test run output is streamed real-time to the console log when the tests are executed. If you want Shippable's parser to parse test output and provide a graphical representation, you need to export a JUNIT xml of your test output to the ./shippable/testresults folder. After the build completes, our build engine will automatically parse it and results appear on the Tests tab (available in build's page).
+Test run output is streamed in real-time to the console log when the tests are executed. If you want Shippable's parser to parse test output and provide a graphical representation, you need to export a JUNIT xml of your test output to the ./shippable/testresults folder. After the build completes, our build engine will automatically parse it and the will results appear in the Tests tab (available in build's page).
 
 **Code Coverage** :
-Executing tests but not really knowing what percentage of your code is actually being tested is like "Flying a plane without GPS". A variety of coverage tools like opencover, cobertura etc. provide a way to measure coverage of your tests. You can export the output of these tools to ./shippable/codecoverage and our build engine will automatically parse it and the results will appear on the Coverage tab.
+Executing tests is only useful so far as the tests cover your code.  A variety of coverage tools like opencover, cobertura etc. provide a way to 
+measure coverage of your tests. You can export the output of these tools to ./shippable/codecoverage and our build engine will automatically parse it. The results will appear on the Coverage tab.
 
-
-Clicking on the **View build history** button will take you to the project's page where you can find all the builds.
-
-
-
-
-
-
- 
+Clicking on the **View build history** button will take you to the project's page where you can find a complete history of your project's builds.
