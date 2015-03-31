@@ -196,6 +196,7 @@ The node.js versions available in these images are
 -   0.8
 -   0.10
 -   0.11
+-   0.12
 
 You can use these images to run node.js builds.  Add **build_image** tag to your shippable.yml file and activate nvm in before_install section to run your build against the correct version of node.js.   
 
