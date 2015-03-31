@@ -25,6 +25,13 @@ If the error shows a parsing failure for the yml, you can validate the file at `
 
 Shippable only supports git based repositories, so if you have mercurial repositories in your BitBucket account, you will not see them in the Shippable repository list. If you cannot see git based repos, please open an issue on our [GitHub Support repo](https://github.com/Shippable/support).
 
+**Why can't shippable see my org on github?**
+
+Github's default policy when a new org is created is 'access restricted'. In order for Shippable to be able to see the org, you
+must manually grant access to Shippable. This can be resolved by going to the third-party access section for the org, and clicking
+'Remove restrictions' Under the 'Third-party application access policy' section.
+
+
 **How do I link my github and bitbucket accounts?**
 
 Shippable allows you to link both github and bitbucket service providers into a single account. Click on the bitbucket icon or github icon on the top right to link the respective account from the dashboard page.
