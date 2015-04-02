@@ -37,3 +37,29 @@ Finally, you must configure your app to use Docker Build through the Shippable P
 * Save settings
 
 And that's it! For every build you run after this point, we will build your custom image from your Dockerfile, run CI, and push the container to Docker Hub.
+
+Post CI Docker Build
+==============================
+In addition to the above workflow, it is also possible to dockerbuild a new image after your CI is finished. Doing this allows you to create a concise
+docker image that contains only what you need for deployment, and leave out anything that is only required for building/testing. As there is no upfront
+way for us to know which files you'd like to put in your "prod" docker image, you must manually specify which files to include.
+
+First off, all of the above steps for regular Docker Build Support are a prerequisite; be sure all those steps are working first, before trying to debug
+Post CI specific problems.
+
+The first additional steps takes place in your project's settings page on the Shippable web console. Under where you specified the source code path
+for the image, you will see a "Docker build when finished" checkbox; check this box. You will then see an option to specify an Image to pull. This is
+different from the docker image you ran your CI in: this image is the one you will run your dockerbuild in. If you're unsure what to specify here,
+shippable/minv2 is a sane default choice.
+
+In the top level directory of your cloned app, we will create a shippable/buildoutput directory. You can use the "after_script" tag to copy files from your
+app to the shippable/buildoutput directory. Given an app with a src and a test directory - where the src directory contains all of our production code - we
+can prepare to create a new docker image containing only the src directory with the following shippable.yml snippet:
+
+.. code-block:: bash
+
+  after_script:
+    - cp -r src ./shippable/buildoutput
+
+The resulting image will then be pushed to dockerhub, if the "Push container to Docker hub" option is specifed, on your project's setting page on our web
+console.
