@@ -338,11 +338,14 @@ This route is used for starting builds of an enabled project
 
 Query Parameters
 
-========= ======== ===================
-Name      Type     Description
-========= ======== ===================
-projectId string   Project's unique ID
-========= ======== ===================
+=========== ======== ===================
+Name        Type     Description
+=========== ======== ===================
+projectId   string   Project's unique ID
+branchName  string   The branch to build
+=========== ======== ===================
+
+``branchName`` is an optional parameter. If it isn't specified, the default branch configured for the project in Github or Bitbucket will be built.
 
 Response
 
