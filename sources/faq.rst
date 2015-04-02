@@ -17,7 +17,7 @@ This happens due to one of the following reasons:
 
 **Why do I get an error when I try to enable a project that is listed on my dashboard?**
 
-This usually happens if you are a collaborator on a project and the owner of the project has not given shippable access to the project. You can verify this by confirming that the owner of the project can see the project on their shippable dashboard.
+This usually happens if you are a collaborator on a project and the owner of the project has not given Shippable access to the project. You can verify this by confirming that the owner of the project can see the project on their Shippable dashboard.
 
 **I have enabled my repository and committed code, but my build doesn't start. What could be wrong?**
 
