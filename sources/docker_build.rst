@@ -40,9 +40,11 @@ And that's it! For every build you run after this point, we will build your cust
 
 Post CI Docker Build
 ------------------------
-In addition to the above workflow, it is also possible to dockerbuild a new image after your CI is finished. Doing this allows you to create a concise
+In addition to the above workflow, it is also possible to build a new image after your CI is finished. Doing this allows you to create a concise
 docker image that contains only what you need for deployment, and leave out anything that is only required for building/testing. As there is no upfront
 way for us to know which files you'd like to put in your "prod" docker image, you must manually specify which files to include.
+
+Please note that the post-CI Docker Build workflow  is not available if you are running a matrix build - i.e. if you are kicking off multiple builds for every code commit.
 
 First off, all of the above steps for regular Docker Build Support are a prerequisite; be sure all those steps are working first, before trying to debug
 Post CI specific problems.
