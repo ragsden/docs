@@ -136,11 +136,13 @@ When we receive a build trigger through a webhook or manual run, we execute the 
 5. Run ``install`` section to install any project specific libraries or packages
 6. Run ``before_script`` section to create any folders and unzip files that might be needed for testing. Some users also restore DBs etc. here
 7. Run the ``script`` command which runs build and all your tests
-8. Run ``after_script`` command
-9. Run either ``after_success`` or ``after_failure`` commands
+8. Run either ``after_success`` or ``after_failure`` commands
+9. Run ``after_script`` command
 
 
 Build status will be determined based on the outcome of the above steps. They need to return an exit code of ``0`` to be marked as success. Everything else is treated as a failure.
+
+Any errors in ``after_script`` will not affect the status of the build.
 
 
 ----------
