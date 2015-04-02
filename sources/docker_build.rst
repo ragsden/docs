@@ -48,12 +48,11 @@ First off, all of the above steps for regular Docker Build Support are a prerequ
 Post CI specific problems.
 
 The first additional steps takes place in your project's settings page on the Shippable web console. Under where you specified the source code path
-for the image, you will see a "Docker build when finished" checkbox; check this box. You will then see an option to specify an Image to pull. This is
-different from the docker image you ran your CI in: this image is the one you will run your dockerbuild in. If you're unsure what to specify here,
-shippable/minv2 is a sane default choice.
+for the image, you will see a "Docker build when finished" checkbox; check this box. You will then see an option to specify an Image to pull. This Docker
+image will be used to run your CI. If you do not have a custom image you'd like to run your CI in, you can use one of our images here such as shippable/minv2
 
-In the top level directory of your cloned app, we will create a shippable/buildoutput directory. You can use the "after_script" tag to copy files from your
-app to the shippable/buildoutput directory. Given an app with a src and a test directory - where the src directory contains all of our production code - we
+In the top level directory of your cloned app, we will create a shippable/buildoutput directory. You can use the "after_script" tag to copy required build artifacts
+from your app to the shippable/buildoutput directory. Given an app with a src and a test directory - where the src directory contains all of our production code - we
 can prepare to create a new docker image containing only the src directory with the following shippable.yml snippet:
 
 .. code-block:: bash
