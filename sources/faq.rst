@@ -10,10 +10,14 @@ Having trouble with your builds? Here is a list of frequently asked questions...
 
 **Why can't I see some of my repositories in my Shippable account?**
 
-This happens due to one of the following reasons -
-- You haven't enabled private repositories in your Shippable account. If this is the reason, please click on the 'Private repos off' icon on your dashboard and give us permissions to access your private repositories.
-- Your account hasn't yet been synced with the latest permissions from GitHub. To fix this, please click on the 'Sync account' icon on your dashboard.
-- You're a BitBucket user and you have mercurial repositories. We do not support mercurial at this time, so you will need to convert them to git or use another platform for CI.
+This happens due to one of the following reasons:
+1) You haven't enabled private repositories in your Shippable account. If this is the reason, please click on the 'Private repos off' icon on your dashboard and give us permissions to access your private repositories.
+2) Your account hasn't yet been synced with the latest permissions from GitHub. To fix this, please click on the 'Sync account' icon on your dashboard.
+3) You're a BitBucket user and you have mercurial repositories. We do not support mercurial at this time, so you will need to convert them to git or use another platform for CI.
+
+**Why do I get an error when I try to enable a project that is listed on my dashboard?**
+
+This usually happens if you are a collaborator on a project and the owner of the project has not given shippable access to the project. You can verify this by confirming that the owner of the project can see the project on their shippable dashboard.
 
 **I have enabled my repository and committed code, but my build doesn't start. What could be wrong?**
 
