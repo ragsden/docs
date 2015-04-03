@@ -298,8 +298,8 @@ dt:hover > a.headerlink {
 .admonition.note,
 .admonition.seealso,
 .admonition.todo {
-  border: 3px solid black;
-  padding: 10px;
+  border: 2px solid black;
+  padding: 8px;
   margin: 5px auto 10px;
   overflow: auto;
 }
@@ -311,7 +311,7 @@ dt:hover > a.headerlink {
   border-color: #ac0004;
 }
 .admonition.note {
-  border-color: #cbc200;
+  border-color: #449999;
 }
 .admonition.todo {
   border-color: orange;
