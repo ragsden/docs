@@ -42,25 +42,39 @@ Post CI Docker Build
 ------------------------
 In addition to the above workflow, it is also possible to build a new image after your CI is finished. Doing this allows you to create a concise
 docker image that contains only what you need for deployment, and leave out anything that is only required for building/testing. As there is no upfront
-way for us to know which files you'd like to put in your "prod" docker image, you must manually specify which files to include.
+way for us to know which files you'd like to put in your "prod" docker image, you must manually specify which files or build artifacts you want to include in your prod image.
 
 Please note that the post-CI Docker Build workflow  is not available if you are running a matrix build - i.e. if you are kicking off multiple builds for every code commit.
 
-First off, all of the above steps for regular Docker Build Support are a prerequisite; be sure all those steps are working first, before trying to debug
+To start with, all of the above steps for regular Docker Build Support are a prerequisite; be sure all those steps are working first, before trying to debug
 Post CI specific problems.
 
-The first additional steps takes place in your project's settings page on the Shippable web console. Under where you specified the source code path
-for the image, you will see a "Docker build when finished" checkbox; check this box. You will then see an option to specify an Image to pull. This Docker
-image will be used to run your CI. If you do not have a custom image you'd like to run your CI in, you can use one of our images here such as shippable/minv2
+The first additional steps take place in your project's Settings tab on the Shippable web console. 
+* Check the 'Docker build when finished' checkbox
+* Enter your CI image in the 'image to pull' textbox. If you do not have an image for CI, you can use shippable/minv2. But please note that minv2 is a very big image so you might want to pull one of your own images for CI.
 
-In the top level directory of your cloned app, we will create a shippable/buildoutput directory. You can use the "after_script" tag to copy required build artifacts
-from your app to the shippable/buildoutput directory. Given an app with a src and a test directory - where the src directory contains all of our production code - we
-can prepare to create a new docker image containing only the src directory with the following shippable.yml snippet:
+**Copying artifacts to prod image**
+If you want to copy some build artifacts to your prod image, you should-
+* create a shippable/buildoutput directory in your shippable.yml
+
+.. code-block:: bash
+
+  before_script:
+    - mkdir -p shippable/buildoutput
+
+* in the after_script section, copy whatever you want to this directory
 
 .. code-block:: bash
 
   after_script:
-    - cp -r src ./shippable/buildoutput
+    - cp -r (your artifacts) ./shippable/buildoutput
 
-The resulting image will then be pushed to dockerhub, if the "Push container to Docker hub" option is specifed, on your project's setting page on our web
-console.
+* In your Dockerfile, you can now use ADD to put the artifacts wherever you want in your prod image
+
+.. code-block:: bash
+
+  ADD ./buildoutput/(artifacts file) (target)
+
+And that's it. Any artifacts you need will be available in your prod image.
+
+If the 'Push to Docker Hub' option is checked, then this prod image will be built and pushed to Docker Hub. 
