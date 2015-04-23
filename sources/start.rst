@@ -11,7 +11,7 @@ Getting Started
 **Step 1** : Sign Up
 --------------------
 
-Using Shippable requires a Github or a Bitbucket account. To create a Shippable account with either of these credentials, visit `Shippable.com <https://www.shippable.com>`_ click login, and choose if you'd like to use your Github or Bitbucket credentials.
+Using Shippable requires a Github or a Bitbucket account. To create a Shippable account with either of these credentials, visit `Shippable.com <https://www.shippable.com>`_ click **Login**, and choose if you'd like to use your Github or Bitbucket credentials.
 If you have Github and Bitbucket accounts you'd like to integrate with shippable, come back and repeat the process with your other account.
 
 If you signup with both Github and Bitbucket, you will have a separate Shippable account for each.
@@ -30,8 +30,8 @@ After authorization, you will be authenticated by the service provider and redir
 **Step 2** : Enable CI for repos
 ---------------------------------------
 
-After logging in, you will see the Repositories on the right sidebar.  Find or search for your product in the list, and click the Enable button.
-Now, whenever you push a commit to your GitHub repo, our webhooks will create a build for that project. Additionally, you can manually trigger builds for the enabled project, by visiting it from the Enabled Projects list.
+After logging in, you will see the Repositories on the right sidebar.  Find or search for your product in the list, and click the **Enable** button.
+Now, whenever you push a commit to your GitHub repo, our webhooks will create a build for that project. Additionally, you can manually trigger builds for the enabled project, by visiting it from the **Enabled Projects** list.
 
 -------
 
@@ -111,22 +111,21 @@ After enabling the project, click the **Build this project** button to manually 
  
 In addition to running builds, Shippable also provides useful visualizations for every build. 
 
-**Console Log** :
+**Console Log**:
 Stdout of a build run is streamed to the browser in real-time using websockets. In addition, there are other important pieces of information like 
 
 * build status
 * duration
-* github changeset id
+* GitHub changeset id
 * committer info
 
-**Artifact archive** :
-If enabled, build artifacts are automatically archived for each run upon completion. To download a tarball of your build's artifacts, go to the build's page and click on the **Artifacts** button. All files in the ./shippable folder at the root of the project are automatically archived. Make sure you include the **archive: true** tag in your yml file to enable the download archive button.
+**Artifact archive**:
+If enabled, build artifacts are automatically archived for each run upon completion. To download a tarball of your build's artifacts, go to the build's page and click the **Artifacts** button. All files in the ./shippable folder at the root of the project are automatically archived. Make sure you include the **archive: true** tag in your yml file to enable the download archive button.
 
-**Test cases** :
+**Test cases**:
 Test run output is streamed in real-time to the console log when the tests are executed. If you want Shippable's parser to parse test output and provide a graphical representation, you need to export a JUNIT xml of your test output to the ./shippable/testresults folder. After the build completes, our build engine will automatically parse it and the will results appear in the Tests tab (available in build's page).
 
-**Code Coverage** :
-Executing tests is only useful so far as the tests cover your code.  A variety of coverage tools like opencover, cobertura etc. provide a way to 
-measure coverage of your tests. You can export the output of these tools to ./shippable/codecoverage and our build engine will automatically parse it. The results will appear on the Coverage tab.
+**Code Coverage**:
+Executing tests is only useful so far as the tests cover your code.  A variety of coverage tools like opencover, cobertura etc. provide a way to measure coverage of your tests. You can export the output of these tools to ./shippable/codecoverage and our build engine will automatically parse it. The results will appear on the Coverage tab.
 
-Clicking on the **View build history** button will take you to the project's page where you can find a complete history of your project's builds.
+Clicking the **View build history** button will take you to the project's page where you can find a complete history of your project's builds.
