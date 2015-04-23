@@ -95,7 +95,7 @@ Builds can be triggered through webhooks or manually through shippable.com.
 
 **Webhooks**
 
-Our webhooks are triggered when a commit is pushed to your repo, or if a pull request is created. Webhooks are are a code way to
+Our webhooks are triggered when a commit is pushed to your repo, or if a pull request is created. Webhooks are a code way to
 verify that commits to your project build in a clean environment, and not just on the comitter's machine.
 
 
