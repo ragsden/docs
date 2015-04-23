@@ -18,13 +18,13 @@ If you signup with both Github and Bitbucket, you will have a separate Shippable
 
 After entering your credentials, you will be prompted to give Shippable access to your repos.
 
+For GitHub authorization, on Shippable Dashboard, by default you will have **Public Repos**-ON and **Private Repos**-OFF icons. To see your GitHub Private Repos, click the **Private Repos** icon and **Authorize application**, which switches the icon to **Private Repos**-ON.
+
 .. note::
 
     We realize that most people do not want to give write access to their repo. However, we need write permissions to add deploy keys to your repos for our webhooks to work. We do not touch anything else in the repo.
 
 After authorization, you will be authenticated by the service provider and redirected back to Shippable. You are now ready to create builds on Shippable!
-
-For GitHub authorization, on Shippable Dashboard, by default you will have **Public Repos**-ON and **Private Repos**-OFF icons. To see your GitHub Private Repos, click the **Private Repos** icon and **Authorize application**, which switches the icon to **Private Repos**-ON.
 
 -------
 
