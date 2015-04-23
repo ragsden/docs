@@ -38,7 +38,7 @@ Now, whenever you push a commit to your GitHub repo, our webhooks will create a 
 **Step 3** : Create YML file
 ----------------------------
 
-In order for Shippable to know how to create a build for your project, your must include in it a ``shippable.yml`` file. This file must be located in the root directory of your repo.
+In order for Shippable to know how to create a build for your project, you must include in it a ``shippable.yml`` file. This file must be located in the root directory of your repo.
 
 .. note::
 
@@ -46,7 +46,7 @@ In order for Shippable to know how to create a build for your project, your must
 
   **If you use TravisCI, we support** ``.travis.yml`` **natively, so that you can test your repos in parallel with Shippable and compare the speed and rich visualizations.**
 
-* First, you can specify what docker image to use. This is an optional setting and if omitted, ``shippable/minv2`` will be used (syntax is ``<docker_hub_username>/<image_name>``).
+* First, you can specify what Docker image to use. This is an optional setting and if omitted, ``shippable/minv2`` will be used (syntax is ``<docker_hub_username>/<image_name>``).
     .. code-block:: python
         
         # build image from Docker Hub (see https://registry.hub.docker.com/repos/shippableimages/)
