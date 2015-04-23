@@ -101,7 +101,7 @@ verify that commits to your project build in a clean environment, and not just o
 
 **Manual Builds** 
 
-After enabling the project, click on the **Build this project** button to manually run a build. Instantly, it will redirect you to the build's page and the console log from your build minion starts to stream to your browser through sockets. 
+After enabling the project, click the **Build this project** button to manually run a build. Instantly, it will redirect you to the build's page and the console log from your build minion starts to stream to your browser through sockets. 
 
 
 --------
