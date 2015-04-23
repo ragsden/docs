@@ -30,9 +30,8 @@ After authorization, you will be authenticated by the service provider and redir
 **Step 2** : Enable CI for repos
 ---------------------------------------
 
-After logging in, you will see a sidebar to the right called Repositories. Find or search for your product in the list, and click the enable button.
-Now, whenever you push a commit to your github repo, our webhooks will create a build for that project. You can additionally manually trigger builds
-for the enabled project, by visiting it from the enabled projects list.
+After logging in, you will see the Repositories on the right sidebar.  Find or search for your product in the list, and click the Enable button.
+Now, whenever you push a commit to your GitHub repo, our webhooks will create a build for that project. Additionally, you can manually trigger builds for the enabled project, by visiting it from the Enabled Projects list.
 
 -------
 
