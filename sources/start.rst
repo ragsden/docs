@@ -24,7 +24,7 @@ After entering your credentials, you will be prompted to give Shippable access t
 
 After authorization, you will be authenticated by the service provider and redirected back to Shippable. You are now ready to create builds on Shippable!
 
-In case of GitHub authorization, on Shippable Dashboard, by default, you will see **Public Repos On** and **Private Repos Off** icons. To see your GitHub Private Repos, click the **Private Repos Off** icon and **Authorize application**, which switches the icon to **Private Repos On**.
+For GitHub authorization, on Shippable Dashboard, by dedault you will have **Public Repos On** and **Private Repos Off** icons. To see your GitHub Private Repos, click the **Private Repos Off** icon and **Authorize application**, which switches the icon to **Private Repos On**.
 
 -------
 
