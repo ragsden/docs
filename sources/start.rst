@@ -11,10 +11,10 @@ Getting Started
 **Step 1** : Sign Up
 --------------------
 
-Using Shippable requires a Github or Bitbucket account. To create a Shippable account with either of these credentials, visit `Shippable.com <https://www.shippable.com>`_ click login, and choose if you'd like to use your Github or Bitbucket credentials.
-If you have Github and Bitbucket accounts you'd like to integrate with shippable, come back and repeat the the process with your other account.
+Using Shippable requires a Github or a Bitbucket account. To create a Shippable account with either of these credentials, visit `Shippable.com <https://www.shippable.com>`_ click login, and choose if you'd like to use your Github or Bitbucket credentials.
+If you have Github and Bitbucket accounts you'd like to integrate with shippable, come back and repeat the process with your other account.
 
-If you signup with both Github and Bitbucket, you will have a seperate Shippable account for each.
+If you signup with both Github and Bitbucket, you will have a separate Shippable account for each.
 
 After entering your credentials, you will be prompted to give Shippable access to your repos.
 
