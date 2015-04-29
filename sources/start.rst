@@ -124,7 +124,7 @@ Stdout of a build run is streamed to the browser in real-time using websockets. 
 If enabled, build artifacts are automatically archived for each run upon completion. To download a tarball of your build's artifacts, go to the build's page and click the **Artifacts** button. All files in the ./shippable folder at the root of the project are automatically archived. Make sure you include the **archive: true** tag in your yml file to enable the download archive button.
 
 **Test cases**:
-Test run output is streamed in real-time to the console log when the tests are executed. If you want Shippable's parser to parse test output and provide a graphical representation, you need to export a JUNIT xml of your test output to the ./shippable/testresults folder. After the build completes, our build engine will automatically parse it and the will results appear in the Tests tab (available in build's page).
+Test run output is streamed in real-time to the console log when the tests are executed. If you want Shippable's parser to parse test output and provide a graphical representation, you need to export a JUNIT xml of your test output to the ./shippable/testresults folder. After the build completes, our build engine will automatically parse it and the results will appear in the Tests tab (available in build's page).
 
 **Code Coverage**:
 Executing tests is only useful so far as the tests cover your code.  A variety of coverage tools like opencover, cobertura etc. provide a way to measure coverage of your tests. You can export the output of these tools to ./shippable/codecoverage and our build engine will automatically parse it. The results will appear on the Coverage tab.
