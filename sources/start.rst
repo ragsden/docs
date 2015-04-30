@@ -11,35 +11,36 @@ Getting Started
 **Step 1** : Sign Up
 --------------------
 
-Using Shippable requires a Github or a Bitbucket account. To create a Shippable account with either of these credentials, visit `Shippable.com <https://www.shippable.com>`_ click **Login**, and choose if you'd like to use your Github or Bitbucket credentials.
-If you have Github and Bitbucket accounts you'd like to integrate with shippable, come back and repeat the process with your other account.
+You can sign in to Shippable using a GitHub or Bitbucket account. We use OAuth authentication, so you do not need to create a separate account on our platform. 
 
-If you signup with both Github and Bitbucket, you will have a separate Shippable account for each.
+To sign in, visit the `Shippable website <https://www.shippable.com>`_, click **Login**, and choose between Github or Bitbucket auth.
 
-After entering your credentials, you will be prompted to give Shippable access to your repos.
+After entering your credentials, you will be prompted to give Shippable access to your repos. GitHub and Bitbucker auth behave a little differently as follows -
 
-For GitHub authorization, on Shippable Dashboard, by default you will have **Public Repos**-ON and **Private Repos**-OFF icons. To see your GitHub Private Repos, click the **Private Repos** icon and **Authorize application**, which switches the icon to **Private Repos**-ON.
+**GitHub**- By default, we will only ask for access to public repos. If you want to use Shippable to build your private repos, you will need to authorize us for private repositories. To do that, click on Private Repos off icon at the top right of your dashboard and go through the GitHub auth flow. The 'Private Repos' icon should show 'ON' when you return to the dashboard.
+
+**Bitbucket**- The Bitbucket API does not have public/private granularity, so we ask for access to all repos on Bitbucket by default.
 
 .. note::
 
     We realize that most people do not want to give write access to their repo. However, we need write permissions to add deploy keys to your repos for our webhooks to work. We do not touch anything else in the repo.
 
-After authorization, you will be authenticated by the service provider and redirected back to Shippable. You are now ready to create builds on Shippable!
+You are now ready to create builds on Shippable!
 
 -------
 
 **Step 2** : Enable CI for repos
 ---------------------------------------
 
-After logging in, you will see the Repositories on the right sidebar.  Find or search for your product in the list, and click the **Enable** button.
-Now, whenever you push a commit to your GitHub repo, our webhooks will create a build for that project. Additionally, you can manually trigger builds for the enabled project, by visiting it from the **Enabled Projects** list.
+After logging in, you will see 'Repositories' on the right sidebar.  Find or search for your product in the list, and click the **Enable** button.
+Now, whenever you push a commit to your GitHub repo, Shippable will build that project as long as you have a shippable.yml (or .travis.yml) at the root of your repository. 
 
 -------
 
 **Step 3** : Create YML file
 ----------------------------
 
-In order for Shippable to know how to create a build for your project, you must include in it a ``shippable.yml`` file. This file must be located in the root directory of your repo.
+We require a shippable.yml file at the root of the repository you want to build with Shippable. This yml file is the config for your build.
 
 .. note::
 
