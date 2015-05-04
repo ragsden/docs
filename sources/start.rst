@@ -25,14 +25,14 @@ After entering your credentials, you will be prompted to give Shippable access t
 
     We realize that most people do not want to give write access to their repo. However, we need write permissions to add deploy keys to your repos for our webhooks to work. We do not touch anything else in the repo.
 
-You are now ready to create builds on Shippable!
+You are now ready to build and test with Shippable!
 
 -------
 
 **Step 2** : Enable CI for repos
 ---------------------------------------
 
-After logging in, you will see 'Repositories' on the right sidebar.  Find or search for your product in the list, and click the **Enable** button.
+After logging in, you will see 'Repositories' on the right sidebar of your dashboard.  Find or search for your repository in the list, and click the **Enable** button.
 Now, whenever you push a commit to your GitHub repo, Shippable will build that project as long as you have a shippable.yml (or .travis.yml) at the root of your repository. 
 
 -------
@@ -53,7 +53,7 @@ We require a shippable.yml file at the root of the repository you want to build 
         
         # build image from Docker Hub (see https://registry.hub.docker.com/repos/shippableimages/)
         build_image: shippableimages/ubuntu1404_nodejs
-* Next, specify the programming language of the project, and the versions of the language you'd like to create builds with. You can test against multiple versions with a single push by adding more in the versions section. 
+* Next, specify the programming language of the project, and the versions of the language you'd like to build against. You can test against multiple versions with a single commit by adding more in the versions section. 
     .. code-block:: python
         
         # language setting
@@ -62,7 +62,8 @@ We require a shippable.yml file at the root of the repository you want to build 
         # version numbers, testing against two versions of node
         node_js:
           - 0.10.25
-* The ``before_install`` tag can be used to install any additional needed dependencies. Here we invoke ``npm install`` to install our Node.js app's dependencies. Even if you don't specify anything here, your minion will attempt to install dependencies for your app in an idiomatic way for the language (such as invoking rake for ruby, or pip for python)
+          - 0.11
+* The ``before_install`` tag can be used to install any additional dependencies. Here we invoke ``npm install`` to install our Node.js app's dependencies. Even if you don't specify anything here, your minion will attempt to install dependencies for your app in an idiomatic way for the language (such as invoking rake for ruby, or pip for python)
     .. code-block:: python
 
         # npm install runs by default but shown here for illustrative purposes
@@ -70,7 +71,7 @@ We require a shippable.yml file at the root of the repository you want to build 
          - npm install docco
          - npm install coffee-script
 
-* The ``script`` tag is where the magic happens. Here you will write the commands used to verify the integrity of your code. Again, if you list nothing here, your build minion will attempt to make a logical choice based on your specified language
+* The ``script`` tag is where the magic happens. In this section, you can write the commands used to verify the integrity of your code. Again, if you list nothing here, your build minion will attempt to make a logical choice based on your specified language.
     .. code-block:: python
 
         # Running npm test to run your test cases
