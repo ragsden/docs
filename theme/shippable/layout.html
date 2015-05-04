@@ -44,6 +44,7 @@
 
     {%- set script_files =
     ['_static/ash/js-plugin/jquery/1.11.2/jquery-1.11.2.min.js']
+    + ['http://code.jquery.com/jquery-migrate-1.2.1.js']
     + ['_static/ash/js/modernizr-2.6.1.min.js']
     + ['_static/ash/bootstrap/js/bootstrap.min.js']
     + ['_static/ash/js-plugin/jquery-ui/jquery-ui-1.8.23.custom.min.js']
@@ -151,8 +152,8 @@
         <li>
           <a href="http://blog.shippable.com" target="_blank">BLOG</a>
         </li>
-        <li class="dropdown" dropdown>
-          <a href="#" class="dropdown-toggle" dropdown-toggle>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             LOGIN
             <i class="fa fa-chevron-down"></i>
           </a>
