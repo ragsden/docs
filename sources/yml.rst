@@ -114,30 +114,30 @@ If you want to prevent shippable from using the default build command you can ad
 These sections are used to specify commands to be called after the build succeeds or fails. 
 For example, for a Java project using Cobertura, this section can be used to clean up files created during instrumentation. 
 
-    .. code-block:: python
+.. code-block:: python
 
-      after_success:
-       - mvn clean cobertura:cobertura
+   after_success:
+      - mvn clean cobertura:cobertura
 
 Commonly, ``after_success`` section is also used to add deployment scripts 
 
-    .. code-block:: python
+.. code-block:: python
 
-        after_success:
-          - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
-          - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
-          - git push -f heroku master
+    after_success:
+        - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+        - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
+        - git push -f heroku master
 
 **after_script**
 
 This is the last user defined section to be executed, and can be used to perform tasks after the build and tests are complete, like generating a coverage report -
 
-    .. code-block:: python
+.. code-block:: python
 
-        # Tell istanbul to generate a coverage report
-        after_script:
-          - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-          - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+   # Tell istanbul to generate a coverage report
+    after_script:
+        - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+        - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
 
 useful yml tags
 ---------------
