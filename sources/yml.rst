@@ -47,15 +47,15 @@ Please note that language specific images do not have any tools and services pre
 
 You should specify the programming language and versions of the language you'd like to build against. You can test against multiple versions with a single commit by adding more in the versions section. 
 
-    .. code-block:: python
+.. code-block:: python
         
-        # language setting
-        language: node_js
+    # language setting
+    language: node_js
 
-        # version numbers, testing against two versions of node
-        node_js:
-          - 0.10.25
-          - 0.11
+    # version numbers, testing against two versions of node
+    node_js:
+        - 0.10.25
+        - 0.11
 
 **before_install**
 
@@ -63,12 +63,12 @@ The ``before_install`` section is used to prep your build minion with any packag
 
 For example, if you require docco and coffee_script for your Node.js app, you would do the following -
 
-    .. code-block:: python
+.. code-block:: python
 
-        # npm install runs by default but shown here for illustrative purposes
-        before_install: 
-         - npm install docco
-         - npm install coffee-script
+    # npm install runs by default but shown here for illustrative purposes
+    before_install: 
+        - npm install docco
+        - npm install coffee-script
 
 
 If nothing is specified in this section, we will attempt to install dependencies for your app in an idiomatic way for the language (such as invoking rake for ruby, or pip for python)
@@ -77,21 +77,21 @@ If nothing is specified in this section, we will attempt to install dependencies
 
 The install section lets you install packages and dependencies that are specific to your project. This is useful if your project uses non standard tools. 
 
-    .. code-block:: python
+.. code-block:: python
 
-       #install java project dependencies with ant
-        install: ant deps
+    #install java project dependencies with ant
+    install: ant deps
 
 **script**
 
 The ``script`` section is where the magic happens. In this section, you can specify the main build commands for your project.
 Again, if you list nothing here, your build minion will attempt to make a logical choice based on your specified language.
 
-    .. code-block:: python
+.. code-block:: python
 
-        # Running npm test to run your test cases
-        script: 
-         - npm test
+    # Running npm test to run your test cases
+    script: 
+        - npm test
 
 You can run any script file as part of your configuration, as long as it has a valid shebang command and the right ``chmod`` permissions. 
 
