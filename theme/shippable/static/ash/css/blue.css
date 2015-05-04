@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : colors
     Author     : Little Neko
     Description: template colors
@@ -12,8 +12,8 @@
 #TYPOGRAPHY
 #LINKS AND BUTTONS
 #HEADER
-#MAIN MENU 
-#FOOTER 
+#MAIN MENU
+#FOOTER
 #SLIDERS
 #PORTFOLIO
 #MISCELANIOUS
@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 	color:#222;
 }
 h2 {
- color:#888;	
+ color:#888;
 }
 h2 i {color:#999}
 h2.subTitle:after, h1.noSubtitle:after{
@@ -152,7 +152,7 @@ ul.iconsList li a:hover, ul.iconsList i {
 /* END LINKS AND BUTTONS
 ================================================== */
 
-/* MAIN MENU 
+/* MAIN MENU
 ================================================== */
 
 #mainHeader{
@@ -178,10 +178,10 @@ ul.iconsList li a:hover, ul.iconsList i {
 	color: #fff;
 }
 
-/* END MAIN MENU 
+/* END MAIN MENU
 ================================================== */
 
-/* FOOTER 
+/* FOOTER
 ================================================== */
 
 footer {
@@ -201,7 +201,7 @@ p.credits a {
 	color:#b7410e;
 }
 
-/* END FOOTER 
+/* END FOOTER
 ================================================== */
 
 /* HOME
@@ -363,7 +363,7 @@ border:none}
 
 /*** Feature box **/
 
-.boxFeature i{color:#b7410e;} 
+.boxFeature i{color:#b7410e;}
 
 /*** slices ***/
 .slice{
@@ -456,7 +456,7 @@ border:none}
       font-size: 15px;
       font-weight: 400px;
       line-height: 10px;
-      padding-top: 25px;
+      padding-top: 10px;
 
       /*letter-spacing: 4px;*/
       /*padding: 20px 20px;*/
@@ -483,7 +483,8 @@ border:none}
         font-size: 8px;
         margin-left: 2px;
         position: relative;
-        top: -1px; }
+        top: -1px;
+        display: inline-block;}
       .navbar.ltgray .navbar-collapse .navbar-nav > li > a:hover {
         color: #449999; }
         @media (max-width: 767px) {
