@@ -4,7 +4,7 @@
 
 .. _ymlconfig:
 
-Configuring your yml
+CONFIGURING YOUR YML
 ====================
 
 Your shippable.yml file tells us about your project and how to run your builds and tests. This file should be at the root of your repository in order to build the repo with Shippable. Your yml can be as minimal or as customized as necessary, depending on the project.
@@ -15,8 +15,8 @@ At a minimum, Shippable needs to have your language and build version specified 
 
 The descriptions below are generic to all build environments and all languages. If you are looking for language specific tags, please refer to our `language guides <http://docs.shippable.com/en/latest/languages/index.html#language-specific-help>`_ for more information.
 
-Build flow
-----------
+**Build flow**
+--------------
 When we receive a build trigger through a webhook or manual run, we execute the following steps - 
 
 1. Clone/Pull the project from Github or Bitbucket. This depends on whether the minion is in pristine state or not
@@ -33,8 +33,8 @@ Build status is determined based on the outcome of the above steps. They need to
 
 Any errors in ``after_script`` will not affect the status of the build.
 
-a closer look at yml sections
------------------------------
+**a closer look at yml sections**
+---------------------------------
 
 **build_image**
 
@@ -143,8 +143,8 @@ This is the last user defined section to be executed, and can be used to perform
         - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
 
 
-useful yml tags
----------------
+**useful yml tags**
+-------------------
 
 **command collections**
 ``shippable.yml`` supports collections under each tag. This is nothing more than YML functionality and we will run it one command at a time.
