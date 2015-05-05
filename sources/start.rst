@@ -63,7 +63,7 @@ The rest of the yml is composed of standard sections - ``before_install``, ``ins
 
 If you just have the language and language version in your yml, we will attempt to 'guess' at the other settings and build your project. However, in most cases, you will need to specify additional configuration in the yml.
 
-**Complete documentation of YML is available** :ref:`HERE <setup>`.
+**Complete documentation of YML is available** :ref:`HERE <ymlconfig>`.
 
 --------
 
