@@ -46,10 +46,10 @@ blockquote small {
 	color:inherit;
 }
 h1, h2, h3, h4, h5, h6 {
-	color:#222;
+	color:#000;
 }
 h2 {
- color:#888;
+ color:#000;
 }
 h2 i {color:#999}
 h2.subTitle:after, h1.noSubtitle:after{
