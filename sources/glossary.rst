@@ -4,7 +4,7 @@
 
 .. _glossary:
 
-Glossary
+GLOSSARY
 ========
 
 Definitions of terms used in Shippable documentation
