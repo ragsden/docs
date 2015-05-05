@@ -184,7 +184,7 @@ display:block;
 body {
 	font-size:14px;
 	line-height: 22px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 	-webkit-text-size-adjust: 100%;
 	margin: 0;
@@ -194,10 +194,10 @@ body {
 h1, h2, h3, h4, h5, h6, legend {
 	margin:0;
 	font-weight: 300;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Helvetica', 'Open Sans', sans-serif;
 }
 h1 {
-	font-size: 32px;
+	font-size: 27px;
 	line-height: 44px;
 	font-weight: 300;
 	font-style: normal;
@@ -237,7 +237,7 @@ h1.noSubtitle{
 	line-height: 33px;
 	margin-bottom: 0;
 	font-weight: 300;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Helvetica', 'Open Sans', sans-serif;
 	padding-left: 0;
 	border: none;
 	text-transform: uppercase;
