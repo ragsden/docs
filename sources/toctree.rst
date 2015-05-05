@@ -23,4 +23,3 @@ This documentation has the following resources:
    samples/index
    glossary
    faq
-
