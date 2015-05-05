@@ -47,42 +47,21 @@ We require a shippable.yml file at the root of the repository you want to build 
   **If you use TravisCI, we support** ``.travis.yml`` **natively, so that you can test your repos in parallel with Shippable and compare the speed and rich visualizations.**
 
 
-Your yml needs a couple of entries at the very minumum - the language and the version(s) of the language you want to test against.
+Your yml needs a couple of entries at the very minumum - the language and the version(s) of the language you want to test against. 
 
+.. code-block:: python
+   
+    # language setting
+    language: node_js
 
-* First, you can specify what Docker image to use. This is an optional setting and if omitted, ``shippable/minv2`` will be used (syntax is ``<docker_hub_username>/<image_name>``).
+    # version numbers, testing against two versions of node
+    node_js:
+        - 0.10.25
+        - 0.11
 
-    .. code-block:: python
-        
-        # build image from Docker Hub (see https://registry.hub.docker.com/repos/shippableimages/)
-        build_image: shippableimages/ubuntu1404_nodejs
-* Next, specify the programming language of the project, and the versions of the language you'd like to build against. You can test against multiple versions with a single commit by adding more in the versions section. 
+The rest of the yml is composed of standard sections - ``before_install``, ``install``, ``before_script``, ``script``, ``after_success`` or ``after_failure``, and ``after_script``.
 
-    .. code-block:: python
-        
-        # language setting
-        language: node_js
-
-        # version numbers, testing against two versions of node
-        node_js:
-          - 0.10.25
-          - 0.11
-* The ``before_install`` tag can be used to install any additional dependencies. Here we invoke ``npm install`` to install our Node.js app's dependencies. Even if you don't specify anything here, your minion will attempt to install dependencies for your app in an idiomatic way for the language (such as invoking rake for ruby, or pip for python)
-
-    .. code-block:: python
-
-        # npm install runs by default but shown here for illustrative purposes
-        before_install: 
-         - npm install docco
-         - npm install coffee-script
-
-* The ``script`` tag is where the magic happens. In this section, you can write the commands used to verify the integrity of your code. Again, if you list nothing here, your build minion will attempt to make a logical choice based on your specified language.
-
-    .. code-block:: python
-
-        # Running npm test to run your test cases
-        script: 
-         - npm test
+If you just have the language and language version in your yml, we will attempt to 'guess' at the other settings and build your project. However, in most cases, you will need to specify additional configuration in the yml.
 
 **Complete documentation of YML is available** :ref:`HERE <setup>`.
 
