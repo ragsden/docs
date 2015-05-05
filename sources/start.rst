@@ -44,9 +44,10 @@ We require a shippable.yml file at the root of the repository you want to build 
 
 .. note::
 
-  This example is for a node.js project. For other languages, refer to our :ref:`language guides <langrefs>`. 
-
   **If you use TravisCI, we support** ``.travis.yml`` **natively, so that you can test your repos in parallel with Shippable and compare the speed and rich visualizations.**
+
+
+Your yml needs a couple of entries at the very minumum - the language and the version(s) of the language you want to test against.
 
 
 * First, you can specify what Docker image to use. This is an optional setting and if omitted, ``shippable/minv2`` will be used (syntax is ``<docker_hub_username>/<image_name>``).
