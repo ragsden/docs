@@ -48,12 +48,15 @@ We require a shippable.yml file at the root of the repository you want to build 
 
   **If you use TravisCI, we support** ``.travis.yml`` **natively, so that you can test your repos in parallel with Shippable and compare the speed and rich visualizations.**
 
+
 * First, you can specify what Docker image to use. This is an optional setting and if omitted, ``shippable/minv2`` will be used (syntax is ``<docker_hub_username>/<image_name>``).
+
     .. code-block:: python
         
         # build image from Docker Hub (see https://registry.hub.docker.com/repos/shippableimages/)
         build_image: shippableimages/ubuntu1404_nodejs
 * Next, specify the programming language of the project, and the versions of the language you'd like to build against. You can test against multiple versions with a single commit by adding more in the versions section. 
+
     .. code-block:: python
         
         # language setting
@@ -64,6 +67,7 @@ We require a shippable.yml file at the root of the repository you want to build 
           - 0.10.25
           - 0.11
 * The ``before_install`` tag can be used to install any additional dependencies. Here we invoke ``npm install`` to install our Node.js app's dependencies. Even if you don't specify anything here, your minion will attempt to install dependencies for your app in an idiomatic way for the language (such as invoking rake for ruby, or pip for python)
+
     .. code-block:: python
 
         # npm install runs by default but shown here for illustrative purposes
@@ -72,6 +76,7 @@ We require a shippable.yml file at the root of the repository you want to build 
          - npm install coffee-script
 
 * The ``script`` tag is where the magic happens. In this section, you can write the commands used to verify the integrity of your code. Again, if you list nothing here, your build minion will attempt to make a logical choice based on your specified language.
+
     .. code-block:: python
 
         # Running npm test to run your test cases
