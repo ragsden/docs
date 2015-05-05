@@ -4,13 +4,13 @@
 	
 .. _setup:
 
-A bit deeper
+A BIT DEEPER
 ============
 
 Build Minions and Build Configuration are two things that you should care the most about when using Shippable. The sections below talk about these in greater detail.
 
 
-**Minions**
+**minions**
 -----------
 
 Minions are Docker based containers that run your builds and tests. You can think of them as Build VMs. Each minion runs one build at a time, so the more minions you have, the more concurrency you will get.  
@@ -19,7 +19,7 @@ Minions are automatically provisioned whenever a build is triggered and it will 
 
 Each minion starts from a base image and can be customized by specifying ``before_install`` scripts in the YML file. A minion can be configured to run any package, library, or service that your application requires. There are some preinstalled tools and services that you can use to customize your minions even further. 
 
-Operating Systems
+operating Systems
 .................
 
 All our Linux minions start from a vanilla base image from the Docker registry. In your YML file you can use the ``build_image`` option to specify the image you want to use. We support all images as a starting point for your minion. Minions can be further customized by using the ``before_install`` and ``install`` tags in ``shippable.yml`` that is in the root of your code repository.
@@ -28,7 +28,7 @@ All our Linux minions start from a vanilla base image from the Docker registry. 
 
 
 
-Common Tools
+common Tools
 ............
 
 A set of common tools are available on all minions. The following is a list of available tools -
@@ -108,7 +108,7 @@ A set of common tools are available on all minions. The following is a list of a
 
 ----------
 
-**Pull Request**
+**pull requests**
 ------------------
 
 
@@ -117,7 +117,7 @@ To rerun a pull request build, go to your project's page -> Pull Request tab and
  
 --------
 
-**Permissions**
+**permissions**
 ------------------
 
 We will automatically add your collaborators when you login to shippable and it will be updated in the user-interface. 
@@ -136,7 +136,7 @@ Collaborator can run or manage projects that are already setup. They have full v
 
 --------
 
-**Build Termination**
+**build termination**
 -----------------------
 
 Build will be forcefully terminated in the following scenarios:
@@ -155,7 +155,7 @@ and the status of the build will be updated as **timeout**.
  
 --------
 
-**Skipping a build**
+**skipping a build**
 -----------------------
 
 Any changes to your source code will trigger a build automatically on Shippable. So if you do not want to run build for a particular commit, then add **[ci skip]** or **[skip ci]** to your commit message. 
@@ -164,7 +164,7 @@ Our webhook processor will look for the string  **[ci skip]** or **[skip ci]** i
 
 --------
 
-**Using Shippable with Gitlab or other types of source control**
+**using Shippable with Gitlab or other types of source control**
 ----------------------------------------------------------------
 
 At the moment, Shippable supports repositories hosted either on GitHub or Bitbucket.
@@ -366,7 +366,7 @@ The only solution here is to clone (i.e. fork) Mercurial repositories and keep s
 
 ---------
 
-**Docker hub**
+**docker hub**
 ---------------
 
 Shippable allows you to push the containers to docker registry after a successful build. To avail this option, you will have to enable the Docker hub from shippable account first. Follow the steps below to enable and push the container to docker registry.
@@ -386,31 +386,14 @@ Here you should use the same user name that you used to sign up on docker hub wi
 
 -------
 
-**Build Badge**
+**build Badge**
 -------------------
 
 Badges will display the status of your default branch. You can find the build badges on the project's page. Click on the **Badge** button and copy the markdown to your README file to display the status of most recent build on your Github or Bitbucket repo page.
 
-
---------
-
-**Caching minions**
--------------------------
-
-Shippable does not cache dependencies between builds. Each build will run on a fresh minion and as soon as the build finishes execution, minion will be deleted. However, we also understand that installing dependencies for each build will take more time and it affects your build speed . Hence we have a caching feature that helps you to cache dependencies between builds. Add the following line to your yml file to enable caching: 
-
-.. code-block:: bash
-  
-     cache: true 
-
-Before the build, we will check for the flag **cache: true** and if it exists, the minion will be cached after the build runs and the cached minion will be reused for further builds.  
-
-You can use the **[reset_minion]** tag in commit message to reset the minion. We will clear all the cached dependencies and packages, when we see a [reset_minion] tag and your build will run on a fresh minion. Once this build finishes execution, we will cache the minion once again so that further builds can run using the cached minion.
-
-
 ---------
 
-**Dedicated hosts**
+**dedicated hosts**
 ------------------------
 
 Shippable allows you to run builds using your own host machine. Build orchestration still happens through the multi-tenant service, but your builds are routed to your own hosts. This gives you complete control on your build system and also keeps your code in your machines. Dedicated hosts can be in the cloud or on premise.
