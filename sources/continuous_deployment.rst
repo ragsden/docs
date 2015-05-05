@@ -6,15 +6,15 @@
 .. _continuous_deployment: 
 
 
-Continuous deployment
+CONTINUOUS DEPLOYMENT
 ==========================
 
 Shippable allows you to deploy your applications to any PaaS providers like Heroku, Amazon Elastic Beanstalk, AWS OpsWorks, Google App Engine, Red Hat OpenShift or any infrastructure provider after a successful build. The section below will give you more details.
 
 
 
-**Continuous deployment to Heroku**
-----------------------------------------
+**Heroku**
+----------
 
 Heroku supports Ruby, Java, Python, Node.js, PHP, Clojure and Scala (with special support for Play Framework), so you can use these technologies to build and deploy apps on Heroku.
 There are two methods of deploying your applications to Heroku: using Heroku toolbelt or plain git command only.
@@ -386,7 +386,7 @@ Full sample of deploying Express+MongoDB application to Heroku (using Heroku too
 
 ---------------------------
 
-**Continuous deployment to Amazon Elastic Beanstalk**
+**Amazon Elastic Beanstalk**
 --------------------------------------------------------
 
 Amazon Elastic Beanstalk features predefined runtime environments for Java, Node.js, PHP, Python and Ruby, so it is possible to configure Shippable minions to automatically deploy applications targeting these environments. Moreover, Elastic Beanstalk also support defining custom runtime environments via Docker containers, giving the developer full flexibility in the configuration of technology stack. However, as the standard, pre-packaged environments are far easier to set up and cover nearly all languages currently supported by Shippable (except for Go), we will concentrate on how to integrate with Amazon Elastic Beanstalk using the former option.
@@ -396,7 +396,7 @@ To interact with Elastic Beanstalk, one needs to use command line tools supplied
 .. code-block :: bash
 
   before_install:
-    - pip install awsebcli
+    - SUDO=$(which sudo) && $SUDO pip install awsebcli
 
 You also need to obtain Access Key to connect ``eb`` tool with Elastic Beanstalk API. Please refer to `this documentation <http://docs.aws.amazon.com/general/latest/gr/getting-aws-sec-creds.html>`_ for details on obtaining the keys. It is recommended to save your access key as secret in Shippable, as is discussed in :ref:`secure_env_variables`. To use code from this tutorial, store the secret access key variable as ``AWSSecretKey``. It is safe to keep your access key id in plain text.
 
@@ -595,7 +595,7 @@ See the full sample of Scalatra+Slick web application featuring MySQL connection
 
 ------------------
 
-**Continuous deployment to AWS OpsWorks**
+**AWS OpsWorks**
 ----------------------------------------------
 
 
@@ -970,7 +970,7 @@ and `the full sample <https://github.com/shippableSamples/sample-nodejs-dynamo-o
 
 -----------------------
 
-**Continuous deployment to Google App Engine**
+**Google App Engine**
 -----------------------------------------------------
 
 Google App Engine supports Python, PHP, Go and Java applications. Support for PHP is in preview, while for Go is marked as experimental. As runtime present on App Engine is a very specific one, with many Google-specific services and some blacklisted modules, it is recommended to use Google App Engine SDK both during the development and testing of your application.
@@ -1640,7 +1640,7 @@ Finally, we can deploy the application to Google App Engine in ``after_success``
 
 -------------------
 
-**Continuous deployment to Red Hat OpenShift**
+**Red Hat OpenShift**
 -----------------------------------------------
 
 Red Hat OpenShift supports wide variety of runtime environments (called 'cartridges' here).
@@ -1876,7 +1876,7 @@ Then, include it in your Arquillian test archive as ``persistence.xml``:
 We invite you to explore our JavaEE+MySQL sample for OpenShift on the
 `Shippable GitHub account <https://github.com/shippableSamples/sample-java-mysql-openshift>`_.
 
-**Continuous deployment to DigitalOcean**
+**DigitalOcean**
 -----------------------------------------
 
 DigitalOcean is a VPS provider that offers a number of pre-prepared virtual machine images to start from.
@@ -2071,7 +2071,7 @@ We invite you to explore our Ruby on Rails + Capistrano sample at
 
 ------------------
 
-**Continuous deployment using AWS CodeDeploy**
+**AWS CodeDeploy**
 ----------------------------------------------
 
 AWS CodeDeploy is a service that handles automated deployment of applications of any kind to Amazon EC2 instances.
