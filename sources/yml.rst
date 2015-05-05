@@ -9,7 +9,11 @@ Configuring your yml
 
 Your shippable.yml file tells us about your project and how to run your builds and tests. This file should be at the root of your repository in order to build the repo with Shippable. Your yml can be as minimal or as customized as necessary, depending on the project.
 
-To help TravisCI users quickly test our platform, we support most tags in .travis.yml natively, so you will not need a shippable.yml in addition. 
+To help Travis CI users quickly test our platform, we support .travis.yml natively, so you will not need a shippable.yml in addition. Most tags in your .travis.yml are supported if the corresponding feature is available on Shippable.
+
+At a minimum, Shippable needs to have your language and build version specified in the yml. We will default to the most common commands if commands for the other sections are not specified.
+
+The descriptions below are generic to all build environments and all languages. If you are looking for language specific tags, please refer to our `language guides <http://docs.shippable.com/en/latest/languages/index.html#language-specific-help>`_ for more information.
 
 Build flow
 ----------
@@ -24,7 +28,6 @@ When we receive a build trigger through a webhook or manual run, we execute the 
 7. Run the ``script`` commands. This runs the build and all your tests
 8. Run either ``after_success`` or ``after_failure`` commands, depending on the result of your build. after_success can be used to deploy to any supported cloud provider
 9. Run ``after_script`` command
-
 
 Build status is determined based on the outcome of the above steps. They need to return an exit code of ``0`` to be marked as success. Everything else is treated as a failure.
 
@@ -154,8 +157,7 @@ useful yml tags
 
 In the example above, our minions will run ``./minions/do_something.sh`` and then run ``./minions/do_something-else.sh``. The only requirement is that all of these operations return a ``0`` exit code. Else the build will fail.
 
-shippable_retry
-.................
+**shippable_retry**
 
 Sometimes npm install may fail due to the intermittent network issues and affects your build execution. To avoid this, **shippable_retry** function will try to install the command again. It will check the return code of a command and if it is non-zero, then it will re-try to install up to three times.
 
@@ -170,8 +172,8 @@ Sometimes npm install may fail due to the intermittent network issues and affect
 
 
 
-git submodules
-..............
+**git submodules**
+
 Shippable supports git submodules. This is a cool functionality of breaking your projects down into manageable chunks. We automatically initialize the ``.gitmodules`` file in the root of the repo. 
 
 .. note::
@@ -198,8 +200,7 @@ If you would like to turn submodules off completely -
 
 
   
-common environment variables
-.............................
+**common environment variables**
 
 The following environment variables are available for every build. You can use these in your scripts if required -
 
@@ -270,8 +271,7 @@ The following environment variables are available for every build. You can use t
 - USER : shippable
 
 
-user specified environment variables
-.....................................
+**user specified environment variables**
 
 You can set your own environment variables in the yml. Every statement of this command will trigger a separate build with that specific version of the environment variables. 
 
@@ -301,8 +301,7 @@ In this setting **4 individual builds** are triggered in a build group
 
 .. _secure_env_variables:
 
-Secure environment variables
-.............................
+**Secure environment variables**
 
 Shippable allows you to encrypt the environment variable definitions and keep your configurations private using **secure** tag. Go to the org dashboard  or individual dashboard page from where you have enabled your project and click on **ENCRYPT ENV VARIABLE** button on the top right corner of the page. Enter the env variable and its value in the text box as shown below. 
 
@@ -356,10 +355,7 @@ To encrypt multiple environment variables separately, configure your yml file as
 
    Due to the security risk of exposing your secure variables, we do not decrypt secure variables for pull request from the forks of public projects. Secure variable decryption is limited to the pull request triggered from the branches on the same repository. And the decrypted secured variables are also not displayed in the script tab for security reasons. 	
 
-
-
-include & exclude branches
-..........................
+**include & exclude branches****
 
 By default, Shippable builds all branches for enabled repositories as long as they have a shippable.yml at the root. 
 
@@ -384,8 +380,7 @@ Here is a sample of the include/exclude config -
       - prod
 
 
-build matrix
-............
+**build matrix**
 
 This is another powerful feature that Shippable has to offer. You can trigger multiple different test passes for a single code push. You might want to test against different versions of ruby, or different aspect ratios for your Selenium tests or best yet, just different jdk versions. You can do it all with Shippable's matrix build mechanism.
 
