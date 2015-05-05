@@ -5,8 +5,8 @@
 .. _langclojure:
 
 
-Clojure
-========
+**clojure**
+==========
 
 This section helps you to create a shippable.yml file for your clojure project.
 
