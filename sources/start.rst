@@ -4,7 +4,7 @@
 
 .. _getstarted:
 
-Getting Started
+GETTING STARTED
 ===============
 
 
