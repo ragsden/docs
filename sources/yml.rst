@@ -442,5 +442,380 @@ Allowed failures are items in your build matrix that are allowed to fail without
     allow_failures:
       - rvm: 1.9.3
 
+----------
+
+**Services**
+-----------------
+Shippable offers a host of pre-installed services to make it easy to run your builds. In addition to these you can install other services also by using the ``install`` tag of ``shippable.yml``. 
+
+All the services are turned off by default and can be turned on by using the ``services:`` tag.
+
+MongoDB
+.......
+
+.. code-block:: bash
+  
+  # Mongo binds to 127.0.0.1 by default
+  services:
+   - mongodb
+
+Sample PHP code using `mongodb <https://github.com/shippableSamples/sample_php_mongo>`_ .
+
+
+MySQL
+.....
+
+.. code-block:: bash
+  
+  # MySQL binds to 127.0.0.1 by default and is started on boot. Default username is shippable with no password
+  # Create a DB as part of before script to use it
+
+  before_script:
+      - mysql -e 'create database myapp_test;'
+                                 
+Sample javascript code using `mysql <https://github.com/shippableSamples/sample_node_mysql>`_.
+
+
+SQLite3
+.......
+
+SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine. So you can use SQLite, if you do not want to test your code behaviour with other databases.
+
+Sample python code using `SQLite <https://github.com/shippableSamples/sample_python_sqllite>`_.
+
+
+Elastic Search
+..............
+
+.. code-block:: bash
+
+  # elastic search is on default port 9200
+  services:
+      - elasticsearch
+
+Sample python code using `Elastic Search <https://github.com/shippableSamples/sample_python_elasticsearch>`_.
+
+Memcached
+..........
+
+.. code-block:: bash
+
+  # memcached runs on default port 11211
+  services:
+      - memcached
+
+Sample python code using `Memcached <https://github.com/shippableSamples/sample_python_memcache>`_ .
+
+
+Redis
+.....
+
+.. code-block:: bash
+
+  # redis runs on default port 6379
+  services:
+      - redis
+
+
+Sample python code using `Redis <https://github.com/shippableSamples/sample_python_redis>`_.
+
+
+Neo4j
+.....
+
+.. code-block:: bash
+ 
+ #neo4j runs on default port 7474
+ services:
+  - neo4j
+
+Sample javascript code using `Neo4j <https://github.com/shippableSamples/sample_node_neo4j>`_ .
+
+Cassandra
+..........
+
+.. code-block:: bash
+ 
+ # cassandra binds to the default localhost 127.0.0.1 and is not started on boot. 
+ services:
+   - cassandra
+
+Sample ruby code using `Cassandra <https://github.com/shippableSamples/sample_ruby_cassandra>`_ .
+
+CouchDB
+.........
+
+.. code-block:: bash
+
+ # couchdb binds to the default localhost 127.0.0.1 and runs on default port 5984. It is not started on boot.
+ services:
+   - couchdb
+
+Sample ruby code using `CouchDB <https://github.com/shippableSamples/sample-ruby-couchdb>`_ .
+
+RethinkDB
+...........
+
+.. code-block:: bash
+
+ # rethinkdb binds to the default localhost 127.0.0.1 and is not started on boot.
+ services:
+   - rethinkdb
+
+Sample javascript code using `RethinkDB <https://github.com/shippableSamples/sample-node-rethinkdb>`_.
+ 
+RabbitMQ
+.........
+
+.. code-block:: bash
+
+  # rabbitmq binds to 127.0.0.1 and is not started on boot. Default vhost "/", username "guest" and password "guest" can be used.
+  services:
+    - rabbitmq
+
+Sample python code using `RabbitMQ <https://github.com/shippableSamples/sample_python_rabbitmq>`_ .
+
+
+--------
+
+**Addons**
+----------
+
+firefox
+..........
+
+We support different firefox versions like "18.0", "19.0", "20.0", "21.0", "22.0", "23.0", "24.0", "25.0", "26.0", "27.0", "28.0", "29.0". To select a specific firefox version, add the following to your shippable.yml file.
+
+.. code-block:: python
+
+	addons:
+  	   firefox: "21.0"
+
+custom host name
+..................
+
+You can also set up custom hostnames using the **hosts** addons. To set up the hostnames in /etc/hosts file, add the following to your shippable.yml file.
+   
+.. code-block:: python
+
+        addons:
+           hosts: 
+    	    - google.com
+            - asdf.com
+
+PostgreSQL
+...........
+
+.. code-block:: bash
+
+  # Postgre binds to 127.0.0.1 by default and is started on boot. Default username is "postgres" with no password
+  # Create a DB as part of before script to use it
+
+  before_script:
+    - psql -c 'create database myapp_test;' -U postgres
+
+Sample java code using `PostgreSQL <https://github.com/shippableSamples/sample_java_postgres>`_.
+
+We support PostgreSQL 9.1, 9.2 and 9.3 versions and by default, version 9.2 is installed on our minions. Configure your yml file using **PostgreSQL** addons to select different versions. Add the following to your yml file to select the version 9.3.
+
+
+.. code-block:: python
+
+          addons:
+           postgresql : "9.3"
+  
+PostGIS 2.1 packages are pre-installed in our minions along with the PostgreSQL versions 9.1, 9.2 and 9.3.
+
+
+Selenium
+...........
+
+
+Selenium is not started on boot. You will have to enable it using **services** tag and start xvfb (X Virtual Framebuffer) on display port 99.0, so that all your test suites will run on the server without a display. Configure your yml file as shown below to start selenium server on firefox.
+
+.. code-block:: bash
+   
+     addons:
+       firefox: "23.0"
+
+     services:
+       - selenium
+
+     before_script:
+       - "export DISPLAY=:99.0"
+       - "/etc/init.d/xvfb start"
+     
+Selenium **2.40** is started by default. You can also select a different version of selenium using **addons** tag. The following versions are supported:
+ 
+- 2.39
+- 2.40
+- 2.41
+- 2.42
+- 2.43
+- 2.44 
+
+Choose the required version and add it to your shippable.yml file as shown below  
+
+.. code-block:: bash
+
+          addons:
+            selenium: "2.43"
+
+This will download the required version. You will have to include **services** tag in your yml file to start the selenium server using the downloaded version. Configure your yml file as shown below to start selenium server **2.43** on firefox.
+      
+.. code-block:: bash
+ 
+    #specify required selenium and firefox version
+    addons:
+      selenium: "2.43"
+      firefox: "27.0"
+     
+    #start the selenium server  
+    services:
+      - selenium
+
+    before_script:
+      - "export DISPLAY=:99.0"
+      - "/etc/init.d/xvfb start"
+  
+
+
+Sample javascript code using `Selenium <https://github.com/shippableSamples/sample_node_selenium>`_ .
+
+
+
+----------
+
+**Test and Code Coverage visualization**
+----------------------------------------
+Test results
+............
+To set up test result visualization for a repository.
+
+* Output test results to shippable/testresults folder. 
+* Make sure test results are in junit format.
+
+For example, here is the .yml file for a Python repo -
+
+.. code-block:: bash
+
+  before_script: mkdir -p shippable/testresults
+  script:
+    - nosetests python/sample.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
+
+Examples for other languages can be found in our :ref:`Code Samples <samplesref>` .
+
+Code coverage
+.............
+To set up code coverage result visualization for a repository.
+
+* Output code coverage output to shippable/codecoverage folder. 
+* Make sure code coverage output is in cobertura xml format.
+
+For example, here is the .yml file for a Python repo -
+
+.. code-block:: bash
+
+  before_script: mkdir -p shippable/codecoverage
+  script:
+    - coverage run --branch python/sample.py
+    - coverage xml -o shippable/codecoverage/coverage.xml python/sample.py
+
+Examples for other languages can be found in our :ref:`Code Samples <samplesref>`.
+
+
+-------------
+
+**Notifications**
+-----------------
+Shippable primarily supports email and irc notifications and these can can be configured through the yml. To send Slack notifications, please check out our `blog post <http://blog.shippable.com/devops-chat-a-simple-way-to-use-slack-notifications-with-shippable>`_.  To send HipChat notifications, check out our `sample project for hipchat notifications <https://github.com/shippableSamples/sample-hipchat-notifications>`_.
+
+By default, we send email notifications to the last committer when a build fails, or the status changes from failed to passed.
+
+You can change the default settings for email notifications by configuring the notifications section of your yml. You can specify the email address(es) where you want to receive notification as well as the criteria for when you want notifications to be sent. 
+
+Email notification
+..................
+
+
+To send notifications to specific email addresses, replace the sample email addresses below with the recipients' email ids in your ``shippable.yml`` file.
+
+.. code-block:: bash
+
+  notifications:
+      email:
+          - exampleone@org.com
+          - exampletwo@org.com
+
+
+You can also specify when you want to get notified by setting the values for on_success and on_failure keys to change|always|never. Change means you want to be notified only when the build status changes on the given branch. Always and never mean you want to be notified always or never respectively.
+
+
+.. code-block:: bash
+ 
+  notifications:
+       email:
+           recipients:
+               - exampleone@org.com
+               - exampletwo@org.com
+           on_success: change
+           on_failure: always
+
+
+If you do not want to get notified for any reason, you can configure email notifications to false.
+
+.. code-block:: bash
+
+  notifications:
+     email: false
+
+
+IRC notification
+..................
+
+You can also configure yml file to send build notifications to your IRC channels. 
+
+- To specify single channel
+
+.. code-block:: bash
+
+   notifications:
+      irc:  "chat.freenode.net#channel1"
+
+- You can also specify multiple server channels in yml file. The following formats are supported: 
+
+.. code-block:: bash
+
+   notifications:
+     irc: 
+       - "chat.freenode.net#channel1"
+       - "chat.freenode.net#channel2"
+       - "server1#channel3"
+
+
+  
+.. code-block:: bash
+
+  notifications:
+    irc:
+     channels: 
+       - "chat.freenode.net#channel1"
+       - "chat.freenode.net#channel2"
+       - "server1#channel3"
+
+- By default, We will always send build notifications to the mentioned channels in yml. **on_success** and **on_failure**  are not yet configurable. 
+
+- IRC notifications are turned off by default for pull request builds. However, you can change the default settings by adding **pull_requests: true** tag in your yml as shown below.
+
+.. code-block:: bash
+
+  notifications:
+    irc:
+     pull_requests: true
+     channels:
+       - "chat.freenode.net#channel1"
+ 
+
+----------
 
 
