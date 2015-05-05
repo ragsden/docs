@@ -88,9 +88,9 @@ To use these workflows, your app must be "dockerized". Details on this can be fo
   * Docker build when finished : Check
   * Image to pull: Specify image you want to run tests on, default is shippable/minv2
   * Push to Docker Hub : Check
-  * Make sure the Dockerfile for the image you want to build is at the root of your repo
-  * Trigger a manual or webhook build
-  * After the build is complete, make sure your Docker Hub account has the right image. The image should be tagged with the build number on Shippable.
+* Make sure the Dockerfile for the image you want to build is at the root of your repo
+* Trigger a manual or webhook build
+* After the build is complete, make sure your Docker Hub account has the right image. The image should be tagged with the build number on Shippable.
 
 **Copying artifacts to prod image**
 
