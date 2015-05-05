@@ -7,8 +7,8 @@
 .. note::
   Docker Build Support is with dedicated hosts only!
 
-Docker Build Support
-==========================
+DOCKER BUILD SUPPORT
+====================
 In addition to pointing to a Docker image on Docker Hub, you can also run your 
 build in a custom docker container by instructing us to build a Docker image
 from a Dockerfile. Aside from providing a custom environment for your build,
