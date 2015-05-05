@@ -4,7 +4,7 @@
 
 .. _samplesref :
 
-Code Samples
+CODE SAMPLES
 =============
 
 We support the following languages
