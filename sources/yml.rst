@@ -7,9 +7,9 @@
 Configuring your yml
 ====================
 
-Your shippable.yml file tells us about your project and how to run your builds and tests. This file should be at the root of your repository in order to build the repo with Shippable. To help TravisCI users quickly test our platform, we support .travis.yml natively, so you will not need a shippable.yml in addition. 
+Your shippable.yml file tells us about your project and how to run your builds and tests. This file should be at the root of your repository in order to build the repo with Shippable. Your yml can be as minimal or as customized as necessary, depending on the project.
 
-Your yml can be as minimal or as customized as necessary, depending on the project.
+To help TravisCI users quickly test our platform, we support most tags in .travis.yml natively, so you will not need a shippable.yml in addition. 
 
 Build flow
 ----------
