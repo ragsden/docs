@@ -3,7 +3,7 @@
 :keywords: custom images, dedicated hosts, shippable images, language specific docker images
 
 
-Language specific images
+LANGUAGE SPECIFIC IMAGES
 ========================
 
 Our default image, minv2, comes installed with popular versions of all supported languages, tools and services. This is the image that is used if nothing is specified in your shippable.yml with a **build_image** tag. 
@@ -33,7 +33,7 @@ The section will give you more details on specific images.
 
 -----
 
-**Clojure**
+**clojure**
 --------------- 
 
 The build image available for clojure is `shippableimages/ubuntu1204_clojure <https://registry.hub.docker.com/u/shippableimages/ubuntu1204_clojure>`_ (`Dockerfile <https://github.com/shippableImages/ubuntu1204_clojure/blob/master/Dockerfile>`_)
@@ -67,7 +67,7 @@ Refer `sample_ubuntu1204_clojure <https://github.com/shippableSamples/sample_ubu
 
 ----
 
-**GO**
+**go**
 -------- 
 
 The following build images are available for GOLANG :
@@ -127,7 +127,7 @@ Refer `sample_ubuntu1204_go <https://github.com/shippableSamples/sample_ubuntu12
 
 ----
 
-**Java**
+**java**
 ---------
 
 The following build images are available for Java:
@@ -181,7 +181,7 @@ Refer `sample_ubuntu1204_java <https://github.com/shippableSamples/sample_ubuntu
 
 -----
 
-**Node.js**
+**node.js**
 -----------
 
 The following build images are available for node.js:
@@ -231,7 +231,7 @@ Refer `sample_ubuntu1204_nodejs <https://github.com/shippableSamples/sample_ubun
 
 ----
 
-**PHP**
+**php**
 --------------- 
 
 The following build images are available for php 
@@ -277,7 +277,7 @@ Refer `sample_ubuntu1204_php <https://github.com/shippableSamples/sample_ubuntu1
 
 ------
 
-**Python**
+**python**
 --------------- 
 
 The following build images are available for python :
@@ -328,7 +328,7 @@ Refer `sample_ubuntu1204_python <https://github.com/shippableSamples/sample_ubun
 
 ----
 
-**Ruby**
+**ruby**
 ---------
 
 The following build images are available for ruby:
@@ -381,7 +381,7 @@ Refer `sample_ubuntu1204_ruby <https://github.com/shippableSamples/sample_ubuntu
 
 ------	
 
-**Scala**
+**scala**
 --------------- 
 
 The build images available for scala:
