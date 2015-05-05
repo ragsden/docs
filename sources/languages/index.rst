@@ -4,7 +4,7 @@
 
 .. _langrefs:
 
-Language Specific Help
+LANGUAGE SPECIFIC HELP
 ======================
 
 We support the following languages
