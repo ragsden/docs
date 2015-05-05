@@ -15,7 +15,7 @@ At a minimum, Shippable needs to have your language and build version specified 
 
 The descriptions below are generic to all build environments and all languages. If you are looking for language specific tags, please refer to our `language guides <http://docs.shippable.com/en/latest/languages/index.html#language-specific-help>`_ for more information.
 
-**Build flow**
+**build flow**
 --------------
 When we receive a build trigger through a webhook or manual run, we execute the following steps - 
 
@@ -33,7 +33,7 @@ Build status is determined based on the outcome of the above steps. They need to
 
 Any errors in ``after_script`` will not affect the status of the build.
 
-**a closer look at yml sections**
+**yml sections**
 ---------------------------------
 
 **build_image**
@@ -169,8 +169,6 @@ Sometimes npm install may fail due to the intermittent network issues and affect
     before_install:
         - shippable_retry sudo apt-get update
         - shippable_retry sudo apt-get install something
-
-
 
 
 **git submodules**
@@ -444,7 +442,7 @@ Allowed failures are items in your build matrix that are allowed to fail without
 
 ----------
 
-**Services**
+**services**
 -----------------
 Shippable offers a host of pre-installed services to make it easy to run your builds. In addition to these you can install other services also by using the ``install`` tag of ``shippable.yml``. 
 
@@ -578,7 +576,7 @@ Sample python code using `RabbitMQ <https://github.com/shippableSamples/sample_p
 
 --------
 
-**Addons**
+**addons**
 ----------
 
 firefox
@@ -686,7 +684,7 @@ Sample javascript code using `Selenium <https://github.com/shippableSamples/samp
 
 ----------
 
-**Test and Code Coverage visualization**
+**test and code coverage visualization**
 ----------------------------------------
 Test results
 ............
@@ -726,7 +724,7 @@ Examples for other languages can be found in our :ref:`Code Samples <samplesref>
 
 -------------
 
-**Notifications**
+**notifications**
 -----------------
 Shippable primarily supports email and irc notifications and these can can be configured through the yml. To send Slack notifications, please check out our `blog post <http://blog.shippable.com/devops-chat-a-simple-way-to-use-slack-notifications-with-shippable>`_.  To send HipChat notifications, check out our `sample project for hipchat notifications <https://github.com/shippableSamples/sample-hipchat-notifications>`_.
 
