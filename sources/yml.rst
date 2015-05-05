@@ -146,6 +146,20 @@ This is the last user defined section to be executed, and can be used to perform
 **useful yml tags**
 -------------------
 
+**caching minions**
+
+Shippable does not cache dependencies between builds. Each build will run on a fresh minion and as soon as the build finishes execution, the minion will be deleted. However, we also understand that installing dependencies for each build will take more time and it affects your build speed . Hence we have a caching feature that helps you to cache dependencies between builds. Add the following line to your yml file to enable caching: 
+
+.. code-block:: bash
+  
+     cache: true 
+
+Before the build, we will check for the flag **cache: true** and if it exists, the entire minion will be cached if the build succeeds and the cached minion will be reused for further builds.  
+
+You can use the **[reset_minion]** tag in your commit message to reset the minion. We will clear all the cached dependencies and packages, when we see a [reset_minion] tag and your build will run on a fresh minion. Once this build finishes execution, we will cache the minion once again so that further builds can run using the cached minion.
+
+Caching is done per build host, so it might take a few builds for all our hosts to get the cached minion. Additional details on caching can be found on our `blog <http://blog.shippable.com/container-caching>`_ . 
+
 **command collections**
 ``shippable.yml`` supports collections under each tag. This is nothing more than YML functionality and we will run it one command at a time.
 
