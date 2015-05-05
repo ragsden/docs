@@ -2,7 +2,7 @@
 :description: Docker specific features supported on Shippable
 :keywords: shippable, Docker, Container, dockerfile, dockerbuild, docker hub
 
-.. _docker_support:
+.. _dockersupport:
 
 
 DOCKER SUPPORT
