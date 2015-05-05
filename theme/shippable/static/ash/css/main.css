@@ -302,6 +302,7 @@ dt:hover > a.headerlink {
   padding: 8px;
   margin: 5px auto 10px;
   overflow: auto;
+  background-color: #f3f3f4;
 }
 .admonition .admonition-title {
   font-size: larger;
