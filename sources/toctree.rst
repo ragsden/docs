@@ -12,6 +12,7 @@ This documentation has the following resources:
 
    index
    start
+   yml
    config
    continuous_deployment
    custom_images
