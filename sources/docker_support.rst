@@ -1,8 +1,9 @@
 :title: Docker support
-:description: Push to docker hub, docker build from dockerfile, copy artifacts to prod image
+:description: Docker specific features supported on Shippable
 :keywords: shippable, Docker, Container, dockerfile, dockerbuild, docker hub
 
 .. _docker_support
+
 
 DOCKER SUPPORT
 ==============
