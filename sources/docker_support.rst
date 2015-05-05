@@ -4,9 +4,6 @@
 
 .. _docker_support
 
-.. note::
-  Docker Build Support is with dedicated hosts only!
-
 DOCKER SUPPORT
 ==============
 Shippable is the world's only CI/CD platform built natively on Docker. All builds are run on Docker containers and this gives us a unique ability to support advanced docker workflows. We're constantly adding to our custom Docker support, so check back often!
