@@ -16,7 +16,6 @@ This documentation has the following resources:
    config
    continuous_deployment
    custom_images
-   docker_support
    docker_build
    api
    upgrade
