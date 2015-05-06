@@ -366,26 +366,6 @@ The only solution here is to clone (i.e. fork) Mercurial repositories and keep s
 
 ---------
 
-**docker hub**
----------------
-
-Shippable allows you to push the containers to docker registry after a successful build. To avail this option, you will have to enable the Docker hub from shippable account first. Follow the steps below to enable and push the container to docker registry.
-
-1. Select the source code hosted account from the dashboard. It will redirect you to the selected account's dashboard page.
-2. Click on the **Docker Hub** button on the top and then enter the docker hub credentials.
-3. Configure your yml file as shown below to push the container.
-
-
-.. code-block:: bash
-
-    commit_container: username/sample_project
-
-
-Here you should use the same user name that you used to sign up on docker hub with. 
-
-
--------
-
 **build Badge**
 -------------------
 
