@@ -117,6 +117,21 @@ To rerun a pull request build, go to your project's page -> Pull Request tab and
  
 --------
 
+**connecting your GitHub and Bitbucket accounts**
+-----------
+
+If you want to use Shippable to build both GitHub and Bitbucket repositories, you can connect the two accounts in order to get a consolidated view of all your projects in one Shippable account.
+
+To connect your accounts, sign in with the GitHub/BitBucket account that you want to be your primary account. You will go through the auth flow and land on your Shippable dashboard.
+
+If you signed in with GitHub, you can click on the BitBucker icon on the top right of your dashboard and then follow the auth flow for Bitbucket.
+
+If you originally signed up with Bitbucket, you can click on the GitHub icons on the top right of your dashboard and then follow the auth flow for GitHub.
+
+Once your accounts are both connected to Shippable, you should see a consolidated list of orgs and projects in your account. You can sign in with either of your credentials after this point.
+
+--------
+
 **permissions**
 ------------------
 
