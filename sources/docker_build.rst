@@ -94,3 +94,29 @@ To use these workflows, your app must be "dockerized". Details on this can be fo
 * Trigger a manual or webhook build
 * After the build is complete, make sure your Docker Hub account has the right image. The image should be tagged with the build number on Shippable.
 
+**Copying artifacts to prod image**
+
+If you are following the post-CI Dockerbuild workflow and  want to copy some build artifacts to your prod image, you should-
+
+1. Create a shippable/buildoutput directory in your shippable.yml
+
+.. code-block:: bash
+
+  before_script:
+    - mkdir -p shippable/buildoutput
+
+2. In the after_script section, copy whatever you want to this directory
+
+.. code-block:: bash
+
+  after_script:
+    - cp -r (your artifacts) ./shippable/buildoutput
+
+3. In your Dockerfile, you can now use ADD to put the artifacts wherever you want in your prod image
+
+.. code-block:: bash
+
+  ADD ./buildoutput/(artifacts file) (target)
+
+And that's it. Any artifacts you need will be available in your prod image.
+
