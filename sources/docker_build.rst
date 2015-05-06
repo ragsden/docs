@@ -24,7 +24,7 @@ We do not call the Docker Hub API until we need to do so during an actual build,
 
 -------
 
-**push to Docker Hub**
+**Push to Docker Hub**
 ----------------------
 
 Shippable allows you to push an image to the docker registry after a successful build. To do this, make sure your Docker Hub icon is set to ON on your Organization's page on Shippable.
