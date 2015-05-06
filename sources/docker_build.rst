@@ -61,3 +61,19 @@ Post CI workflow is:
 * Push container to docker hub
 
 To use these workflows, your app must be "dockerized". Details on this can be found in Docker's official documentation `Docker's official documentation <https://docs.dockerhub.com>`_. You can also look at our `Docker build sample app <https://github.com/cadbot/dockerized-nodejs>`_. 
+
+**Pre CI Dockerbuild**
+
+* Make sure your Shippable org is connected to your Docker Hub account
+* Enable the repository on Shippable
+* On the repo page, go to 'Settings'. Choose the following -
+
+  * Build image : Custom Image
+  * Custom image action : Build
+  * Custom image name : (docker hub username)/(image name)
+  * Source code path : (source code path for image you want to build)
+  * Push to Docker Hub : Check
+* Make sure the Dockerfile for the image you want to build is at the root of your repo
+* Trigger a manual or webhook build
+* After the build is complete, make sure your Docker Hub account has the image you just pushed. The image should be tagged with the build number on Shippable.
+
