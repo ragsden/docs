@@ -77,3 +77,20 @@ To use these workflows, your app must be "dockerized". Details on this can be fo
 * Trigger a manual or webhook build
 * After the build is complete, make sure your Docker Hub account has the image you just pushed. The image should be tagged with the build number on Shippable.
 
+**Post CI Dockerbuild**
+
+* Make sure your Shippable org is connected to your Docker Hub account
+* Enable the repository on Shippable
+* On the repo page, go to 'Settings'. Choose the following -
+
+  * Build image : Custom Image
+  * Custom image action : Build
+  * Custom image name : (docker hub username)/(image name)
+  * Source code path : (source code path for image you want to build)
+  * Docker build when finished : Check
+  * Image to pull: Specify image you want to run tests on, default is shippable/minv2
+  * Push to Docker Hub : Check
+* Make sure the Dockerfile for the image you want to build is at the root of your repo
+* Trigger a manual or webhook build
+* After the build is complete, make sure your Docker Hub account has the right image. The image should be tagged with the build number on Shippable.
+
