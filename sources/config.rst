@@ -135,19 +135,15 @@ Once your accounts are both connected to Shippable, you should see a consolidate
 **permissions**
 ------------------
 
-We will automatically add your collaborators when you login to shippable and it will be updated in the user-interface. 
+We closely mimic GitHub and Bitbucket permissions for Orgs and projects. Anyone who has access to an organization or repository in GitHub/Bitbucket will also have access to build information and/or repository and build actions on Shippable. This happens automatically, so if you enable a repository in your Org on Shippable and another team member signs in, they will see the enabled repository and build history already present in their account.
 
-
-There are two types of roles that users can have -
+We support 2 roles -
 
 **Owner :** 
-Owner is the highest role. This role permits users to create, run and delete a project. 
-
+Owners have all privileges for an Org or Project. They can enable, run and delete projects, upgrade pricing plans, and view/run, cancel, and delete builds.
 
 **Collaborator :** 
-Collaborator can run or manage projects that are already setup. They have full visibility into the project and can trigger the build.
-
-
+Collaborators can enable projects and view/run builds on Shippable. They cannot delete enabled projects or upgrade pricing plans.
 
 --------
 
@@ -159,7 +155,7 @@ Build will be forcefully terminated in the following scenarios:
 * If a command hangs for a long time or there hasn't been any log output   
 * If the build is still executing after 60 minutes 
 
-and the status of the build will be updated as **timeout**.
+and the status of the build will be shown as **timeout**.
 
 .. note::
   
