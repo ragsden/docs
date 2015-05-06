@@ -387,7 +387,9 @@ Badges will display the status of your default branch. You can find the build ba
 **dedicated hosts**
 ------------------------
 
-Shippable allows you to run builds using your own host machine. Build orchestration still happens through the multi-tenant service, but your builds are routed to your own hosts. This gives you complete control on your build system and also keeps your code in your machines. Dedicated hosts can be in the cloud or on premise.
+Shippable allows you to run builds using your own host machine. Build orchestration still happens through the multi-tenant service, but your builds are routed to your own hosts. This gives you complete control on your build system and also keeps your code on your machines. Dedicated hosts can be in the cloud or on premise.
+
+Another main advantage of dedicated hosts is the ability to run Dockerbuild or pull private custom images from Docker Hub for your builds.
 
 The minimum requirements for a host are -
 
@@ -399,7 +401,9 @@ The minimum requirements for a host are -
 
 There is no CPU constraint, but builds will run slower on a slower CPU.
 
-To use this feature, follow the steps mentioned `here <http://blog.shippable.com/dedicated-hosts->`_ and then update the **build_image** tag in your shippable.yml file with the path of your docker image. 
+The easiest way to get started is to provision a `$20 DO droplet <https://www.digitalocean.com/pricing/>`_ , follow instructions `here <http://blog.shippable.com/dedicated-hosts->`_ .
+
+You should then update the **build_image** tag in your shippable.yml file with the path to your docker image. 
 
 .. code-block:: python
 
