@@ -7,12 +7,15 @@
 .. note::
   Docker Build Support is with dedicated hosts only!
 
-DOCKER SUPPORT
-==============
+DOCKER REGISTRIES
+=================
 Shippable is the world's only CI/CD platform built natively on Docker. All builds are run on Docker containers and this gives us a unique ability to support advanced docker workflows. We're constantly adding to our custom Docker support, so check back often!
 
+**Docker Hub**
+--------------
+
 **Connect your Docker Hub account to Shippable**
-------------------------------------------------
+
 If you want to interact with Docker Hub in any part of your build workflow, you need to connect your Docker Hub account to Shippable. This is a requirement for pulling custom images from your Docker Hub repos or pushing images to Docker Hub.
 
 You can set up Docker Hub integration on a per-Org basis.
@@ -25,7 +28,6 @@ We do not call the Docker Hub API until we need to do so during an actual build,
 -------
 
 **Push to Docker Hub**
-----------------------
 
 Shippable allows you to push an image to the docker registry after a successful build. To do this, make sure your Docker Hub icon is set to ON on your Organization's page on Shippable.
 
@@ -40,7 +42,6 @@ The username above should be the same as the Docker Hub credentials you entered 
 -------
 
 **Dockerbuild**
----------------
 
 .. note::
   Docker Build Support is only available with dedicated hosts. To set up a dedicated host, please follow instructions `here <http://docs.shippable.com/en/latest/config.html#dedicated-hosts>`_
