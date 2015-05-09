@@ -11,6 +11,8 @@ DOCKER REGISTRIES
 =================
 Shippable is the world's only CI/CD platform built natively on Docker. All builds are run on Docker containers and this gives us a unique ability to support advanced docker workflows. We're constantly adding to our custom Docker support, so check back often!
 
+We fully integrate with 2 hosted Docker registries - Docker Hub and Google Container Registry.
+
 **Docker Hub**
 --------------
 
@@ -120,4 +122,81 @@ If you are following the post-CI Dockerbuild workflow and  want to copy some bui
   ADD ./buildoutput/(artifacts file) (target)
 
 And that's it. Any artifacts you need will be available in your prod image.
+
+
+**Google Container Registry**
+-----------------------------
+The Google Container Registry (GCR) provides secure, private Docker image storage on Google Cloud Platform. Using GCR has many advantages such as fine grained access control, server-side encryption of images, and super fast deployment to Google Container Engine and Google Compute Engine.
+
+To read more about GCR, you can read their `documentation <https://cloud.google.com/tools/container-registry/>`_ or their `announcement blog <http://googlecloudplatform.blogspot.com/2015/01/secure-hosting-of-private-Docker-repositories-in-Google-Cloud-Platform.html>`_ 
+
+**Setting up GCR integration on Shippable**
+
+If you want to interact with GCR in any part of your build workflow for your Shippable project, such as using your private images for your builds or pushing images to your repository, you need to connect your GCR project to your Shippable project. 
+
+Follow the following steps to set up GCR integration.
+
+1. Create a Project in Google Dev Console
+
+To use Shippable with GCR, you will need a project created using using the Google Developers Console (GDC). According to their documentation - A project is a collection of settings, credentials, and metadata about the application or applications you're working on that make use of Google Developer APIs and Google Cloud resources.
+
+If you already have a project you want to use, skip to step 2.
+
+To create a project -
+
+* Sign in to the `Google Developers Console <https://console.developers.google.com/>`_ 
+* Click on 'Create Project'
+* Enter a name and project ID or accept the defaults.
+* Click 'Create'
+
+2. Setting up OAuth for your GDC project
+
+* On the `Google Developers Console <https://console.developers.google.com/>`_ , select the project you just created
+* In the sidebar on the left, expand 'APIs & auth' and select 'Credentials'
+* Click 'Create new Client ID' and select 'Service Account' in the pop-up window
+* Click on 'Create Client ID'. A dialog box appears. To proceed, click 'Okay, got it'
+* Your new Public/Private key pair is generated and downloaded to your machine. Please store this carefully since you will not be able to retrieve this from your GDC account. You will need this key pair to set up GCR integration on Shippable. 
+
+3. Set up GCR Integration 
+
+* Login to Shippable
+* Click on your GitHub/Bitbucket username at the top right of your Dashboard and click on 'Account Settings'
+* On the Account Settings page, click on 'Integrations', just below the Account Settings text.
+* From the options presented, click on GCR
+* Enter an Integration name, which will be used to refer to this integration on Shippable
+* Copy the key pair generated during the last step and paste into the jsonKey field.
+* Click on 'Save'
+
+At this point, you have set up GCR integration at an account level. To push and pull from GCR, you will also need to enable repo-level access as described in the scenarios below.
+
+**Pull custom image from GCR**
+
+Shippable allows you to pull a custom image from GCR to run your builds on. 
+
+To enable GCR integration for the repository for which you want to pull a custom image -
+
+* Go to your repository page on Shippable and click on 'Integrations' on the right sidebar
+* Click on the dropdown for 'Hub' and select the Integration name you want to use.
+
+The following configuration in your shippable.yml will pull your image from GCR and run your builds in the container -
+
+.. code-block:: bash
+
+    build_image: gcr.io/project_ID_on_GDC/image_name
+
+
+**Push to GCR**
+
+Shippable allows you to push an image to GCR after a successful build. 
+
+To enable GCR integration for the repository for which you want to push to GCR -
+
+* Go to your repository page on Shippable and click on 'Integrations' on the right sidebar
+* Click on the dropdown for 'Hub' and select the Integration name you want to use.
+
+The following configuration in your shippable.yml will push the image to GCR after the build is successful.
+
+.. code-block:: bash
+
+    commit_container: gcr.io/project_ID_on_GDC/image_name
 
