@@ -128,17 +128,17 @@ And that's it. Any artifacts you need will be available in your prod image.
 -----------------------------
 The Google Container Registry (GCR) provides secure, private Docker image storage on Google Cloud Platform. Using GCR has many advantages such as fine grained access control, server-side encryption of images, and super fast deployment to Google Container Engine and Google Compute Engine.
 
-To read more about GCR, you can read their `documentation <https://cloud.google.com/tools/container-registry/>`_ or their `announcement blog <http://googlecloudplatform.blogspot.com/2015/01/secure-hosting-of-private-Docker-repositories-in-Google-Cloud-Platform.html>`_ 
+To read more about GCR, you can read Google's `documentation <https://cloud.google.com/tools/container-registry/>`_ or `announcement blog <http://googlecloudplatform.blogspot.com/2015/01/secure-hosting-of-private-Docker-repositories-in-Google-Cloud-Platform.html>`_ 
 
 **Setting up GCR integration on Shippable**
 
-If you want to interact with GCR in any part of your build workflow for your Shippable project, such as using your private images for your builds or pushing images to your repository, you need to connect your GCR project to your Shippable project. 
+If you want to interact with GCR in any part of your build workflow for your Shippable project, such as using your private images for your builds or pushing images to your repository, you need to connect your GCR project to your Shippable account. 
 
 Follow the following steps to set up GCR integration.
 
 1. Create a Project in Google Dev Console
 
-To use Shippable with GCR, you will need a project created using using the Google Developers Console (GDC). According to their documentation - A project is a collection of settings, credentials, and metadata about the application or applications you're working on that make use of Google Developer APIs and Google Cloud resources.
+To use Shippable with GCR, you will need a project created using the Google Developers Console (GDC). According to their documentation - A project is a collection of settings, credentials, and metadata about the application or applications you're working on that make use of Google Developer APIs and Google Cloud resources.
 
 If you already have a project you want to use, skip to step 2.
 
