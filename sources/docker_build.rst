@@ -215,14 +215,21 @@ You can run your build in a custom docker container by building a Docker image f
 There are 2 ways to set up Docker build with Shippable - pre CI or post CI. 
 
 Pre CI workflow is:
+
 * Build the image using Dockerfile at the root of your repo
+
 * Pull code from GitHub/Bitbucket and test code in the container
+
 * Push container to docker hub
 
 Post CI workflow is:
+
 * Pull image specified from Docker Hub (default is minv2)
+
 * Pull code from GitHub/Bitbucket and test in container
+
 * If CI passs, build container from Dockerfile at the root of the repo
+
 * Push container to docker hub
 
 To use these workflows, your app must be "dockerized". Details on this can be found in Docker's official documentation `Docker's official documentation <https://docs.dockerhub.com>`_. You can also look at our `Docker build sample app <https://github.com/cadbot/dockerized-nodejs>`_. 
